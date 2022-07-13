@@ -1,0 +1,446 @@
+/*
+Theme Name: Reboot Child
+Theme URI: https://wpshop.ru/themes/reboot
+Author: WPShop.biz
+Author URI: http://wpshop.biz/
+Template: reboot
+Version: 1.0.0
+*/
+
+/* Below you can add your CSS styles */
+/* Ниже Вы можете добавить свои CSS стили */
+
+label {
+    display: block;
+    font-weight: 400;
+    margin: 0 0 10px 0;
+}
+table{
+    width: 100%;
+}
+
+table {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table td, table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    position: relative;
+}
+
+table tr:nth-child(even){background-color: #f2f2f2;}
+
+table tr:hover {background-color: #ddd;}
+
+table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #cd2653;
+    color: white;
+}
+
+button{
+    background: #cd2653;
+    border: none;
+    border-radius: 0;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 0.0333em;
+    line-height: 1.25;
+    margin: 0;
+    opacity: 1;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: opacity 0.15s linear;
+}
+input[type="text"], input[type="password"], input[type="email"], input[type="url"], input[type="date"], input[type="month"], input[type="time"], input[type="datetime"], input[type="datetime-local"], input[type="week"], input[type="number"], input[type="search"], input[type="tel"], input[type="color"], textarea {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: #fff;
+    border-radius: 0;
+    border-style: solid;
+    border-width: 0.1rem;
+    box-shadow: none;
+    display: block;
+    margin: 0;
+    max-width: 100%;
+    padding: 20px;
+    width: 100%;
+}
+.cd__button-small{
+    font-size: 14px;
+    padding: 8px;
+    font-weight: 300;
+}
+.scbt_diler_register_fields {
+    display: none;
+}
+.scbt__checkbox {
+    font-size: 12px;
+    text-align: center;
+    margin-top: 20px;
+    display: block;
+}
+.scbt__checkbox_square {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin-right: 10px;
+    position: relative;
+    top: 2px;
+    border-radius: 2px;
+    position: relative;
+    color: transparent;
+    border: 1px solid #d4584d;
+}
+.scbt__checkbox.active .scbt__checkbox_square {
+    background-color: #d4584d;
+}
+.scbt__checkbox.active .scbt__checkbox_square {
+    color: #fff;
+}
+.scbt__checkbox_square span {
+    position: absolute;
+    left: 1px;
+    top: -2px;
+}
+#scbt__checkbox_accept {
+    visibility: hidden;
+    opacity: 0;
+}
+.scbt__submit{
+    border: 1px solid;
+    border-color: #c50000;
+    border-radius: 4px;
+    background: #c50000;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 19px;
+    padding: 6px 18px;
+    transition: 0.2s;
+    min-height: 34px;
+    cursor: pointer;
+}
+.scbt__submit_register_wrapper {
+    text-align: center;
+}
+.scbt__notice_error, .scbt__notice_success {
+    padding: 20px;
+    border-radius: 4px;
+}
+.scbt__notice_error {
+    border: 1px solid red;
+}
+.scbt__register_result {
+    font-size: 15px;
+    text-align: center;
+}
+ul.products li.product .add_to_cart_button{
+    background-color: #c50000;
+}
+ul.products li.product .woocommerce-loop-product__title {
+    min-height: 40px;
+}
+.cab_content {
+    margin: 25px 0 0;
+}
+.header-row,
+.brand-row{
+    display: none !important;
+}
+#content.site-content{
+    padding-left: 0;
+    padding-right: 0;
+}
+.folder-front use,
+.folder-sub-front use{
+    fill: #c50000;
+}
+.scbt__course_cat .folder-wrap .folder-back,
+.scbt__course_cat .folder-wrap.folder-with-subfolders .folder-sub-back,
+.scbt__course_cat .folder-wrap .files-group,
+.scbt__course_cat .folder-wrap.folder-with-subfolders .folder-sub{
+    display: none;
+}
+
+.scbt__course_cat .folder-wrap.folder-with-files .folder-front,
+.scbt__course_cat .folder-wrap.folder-with-subfolders .folder-sub-front,
+.scbt__course_cat .folder-wrap.folder-with-files,
+.scbt__course_cat .folder-wrap.folder-with-subfolders{
+    width: 100%;
+    height: 100%;
+}
+.scbt__course_cat .folder-wrap.folder-with-files{
+    border-radius: 5px;
+    overflow: hidden;
+}
+.scbt__course_cat .folder-wrap .folder-content{
+    position: relative;
+}
+.scbt__course_cat_counter{
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 44px;
+    width: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+}
+.scbt__course_cat_counter:before{
+    content: '';
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    left: 7px;
+    top: 7px;
+    border: 2px solid #fff;
+    border-radius: 50%;
+}
+.scbt__course_cat .folder-wrap .folder-content .title,
+.scbt__course_cat .folder-wrap .folder-content .bottom-icons {
+    padding-left: 60px;
+}
+.scbt__course_structure_toggle{
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+.scbt__course_structure_toggle svg{
+    margin-right: 5px;
+}
+.scbt__course_structure_sidebar{
+    position: fixed;
+    transform: translate(-1000px, 0px);
+    transition: 1s;
+    top: 0;
+    bottom: 0;
+    z-index: -999;
+    height: 100vh;
+    width: 400px;
+    background-color: #FFFAFA;
+    opacity: 0;
+    visibility: hidden;
+    color: #333;
+    padding: 100px 20px;
+    overflow-y: auto;
+}
+.scbt__course_structure_sidebar a{
+    color: #333;
+    text-decoration: none;
+}
+.scbt__course_structure_sidebar a:hover{
+    color: #c50000;
+}
+.scbt__course_structure_sidebar ul{
+    line-height: 1.5;
+}
+.scbt__course_structure_sidebar li{
+    margin: 15px 0;
+    line-height: 1.2;
+    position: relative;
+    list-style: none;
+    padding-left: 15px;
+}
+.scbt__course_structure_sidebar > ul{
+    margin-left: 0;
+    padding-left: 0;
+    list-style: none;
+}
+.scbt__course_structure_sidebar > ul ul{
+    padding-left: 0;
+}
+.scbt__course_structure_sidebar > ul > li{
+    padding-left: 20px;
+}
+.scbt__course_structure_sidebar > ul > li:before{
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background-color: #c50000;
+    left: 3px;
+    top: 6px;
+}
+.scbt__course_structure_sidebar .cd__list_current_cat a{
+    font-weight: 600;
+    color: #c50000;
+}
+.scbt__course_structure_sidebar.active{
+    opacity: 1;
+    visibility: visible;
+    transform: translate(0px, 0px);
+    z-index: 999;
+    box-shadow: 8px 0 15px -4px rgba(0, 0, 0, 0.4), -8px 0 8px -4px rgba(0, 0, 0, 0.4);
+}
+
+.scbt__course_structure_sidebar .cd__list_has_not_children.cd__list_item_not_open{
+    display: block;
+}
+
+.scbt__course_structure_close{
+    position: absolute;
+    right: 15px;
+    top: 20px;
+}
+.lesson-row .scbt__course_structure_button{
+    padding-bottom: 45px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+#lk-content{
+    overflow: visible;
+}
+.scbt__single_lesson .tab-content > .tab-pane{
+    display: block;
+}
+.scbt__course_structure_button{
+    transition: 1s;
+}
+.scbt__course_structure_button.fly{
+    position: fixed;
+    left: 200px;
+    bottom: 20px;
+    background-color: rgba(255,255,255,0.6);
+    padding: 0 10px;
+    border-radius: 4px;
+}
+.reading-status-row{
+    position: relative;
+}
+.scbt__pass_lesson_modal{
+    position: absolute;
+    background-color: #fff;
+    bottom: -30px;
+    right: 0;
+    min-width: 300px;
+    max-width: 500px;
+    padding: 30px 20px;
+    box-shadow: -6px 5px 24px rgb(0 0 0 / 22%);
+    text-align: center;
+}
+.scbt__pass_lesson_modal button{
+    background: rgb(197, 0, 0);
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+}
+.scbt__pass_lesson_modal .scbt__pass_lesson_modal_pass{
+    background: #333;
+}
+.scbt__pass_lesson_modal_title{
+    font-size: 24px;
+    font-weight: bold;
+}
+.scbt__pass_lesson_modal_text{
+    margin: 20px 0 30px;
+    font-size: 18px;
+}
+.scbt__pass_lesson_modal_close{
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    cursor: pointer;
+}
+.scbt__lk_user_role{
+    color: #fff;
+}
+.scbt__lk_company_logo{
+    position: absolute;
+    max-width: 50px;
+    right: 20px;
+    top: 22px;
+}
+.office-sunshine .rcl-action{
+    margin: 0;
+}
+.scbt__lesson_additional_videos{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+    margin-bottom: 80px;
+}
+.scbt__lesson_additional_video{
+    display: flex;
+    justify-content: center;
+    box-shadow: -6px 5px 24px rgb(0 0 0 / 6%);
+    padding: 40px 0;
+}
+.scbt__lesson_header_posts_list_tooltip{
+    display: none;
+}
+.scbt__lesson_header_posts_list{
+    display: flex;
+    justify-content: center;
+	padding: 20px 0;
+	flex-wrap: wrap;
+}
+.scbt__lesson_header_posts_list_item{
+    margin-right: 10px;
+	margin-bottom: 10px;
+    padding: 5px 10px;
+    border-radius: 4px;
+    border: 1px solid rgba(0,0,0,0.1);
+	position: relative;
+	transition: 0.5s;
+}
+.scbt__lesson_header_posts_list_item:last-child{
+	margin-right: 0;
+}
+.scbt__lesson_header_posts_list_item a{
+	color: #333;
+}
+.scbt__lesson_header_posts_list_item a:hover{
+	color: #c50000;
+}
+.scbt__lesson_header_posts_list_item--active{
+	background-color: #c50000;
+	color: #fff;
+}
+.scbt__lesson_header_posts_list_item:hover{
+	border: 1px solid #c50000;
+}
+.scbt__lesson_header_posts_list_item:hover .scbt__lesson_header_posts_list_tooltip{
+	display: flex;
+	align-items: flex-start;
+	justify-content: center;
+	position: absolute;
+    left: calc(50% - 100px);
+    top: -65px;
+    color: #333;
+    width: 200px;
+    height: 60px;
+    font-size: 14px;
+    overflow: hidden;
+    padding: 10px;
+    background-color: #fff;
+	border: 1px solid rgba(0,0,0,0.1);
+	border-radius: 4px;
+	text-align: center;
+}
+@media (max-width: 1440px) {
+    .scbt__course_structure_button.fly{
+        left: 10px;
+    }
+}
+@media (max-width: 1200px) {
+    .scbt__lesson_additional_videos{
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+}
+@media (max-width: 700px) {
+    .scbt__lesson_additional_videos{
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+}
