@@ -1,0 +1,9 @@
+.mbla-level-link {
+  color: #444;
+  text-decoration: none;
+
+  &:hover {
+    color: darken(#444, 30%);
+    text-decoration: underline;
+  }
+}

@@ -1,0 +1,182 @@
+.shop-row {
+  padding: 15px 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+.shop-row .shop-single-product {
+  margin: 15px 0;
+  padding: 15px;
+  background-color: white;
+  border: 1px solid #e3e3e3;
+  border-radius: 5px;
+}
+.shop-row .shop-single-product .product-image-wrapper {
+  overflow: hidden;
+  border-radius: 7px;
+  position: relative;
+  height: 0;
+  border: none;
+  padding-top: 100%;
+}
+.shop-row .shop-single-product .product-image-wrapper .folder-wrap {
+  z-index: 20;
+}
+.shop-row .shop-single-product .product-image-wrapper .image-ratio {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.shop-row .shop-single-product .product-info {
+  display: flex;
+  padding: 0;
+}
+.shop-row .shop-single-product .product-info .col-45 {
+  width: 45%;
+  color: #8E8E8E;
+}
+.shop-row .shop-single-product .product-info .col-55 {
+  width: 55%;
+  color: #8E8E8E;
+}
+.shop-row .shop-single-product .product-info span.value {
+  display: block;
+  color: #000;
+  min-height: 36px;
+}
+.shop-row .shop-single-product .broduct-btn {
+  display: block;
+  width: 100%;
+  padding: 15px;
+  text-align: center;
+  margin: 10px 0 0 0;
+  border-radius: 3px;
+  text-transform: uppercase;
+  height: 50px;
+  font-size: 1.4rem;
+}
+.shop-row .folder-wrap .folder-content .bottom-icons {
+  background: unset;
+}
+@media (max-width: 5000px) and (min-width: 280px) {
+  .shop-row .folder-wrap.folder-with-files .folder-front,
+  .shop-row .folder-wrap.folder-with-files,
+  .shop-row .folder-wrap.folder-with-subfolders,
+  .shop-row .folder-wrap.folder-with-subfolders .folder-sub-front,
+  .shop-row .folder-wrap.folder-with-subfolders .folder-sub-back {
+    width: unset;
+    height: unset;
+    cursor: auto;
+  }
+  .shop-row .folder-wrap {
+    margin-top: 0;
+  }
+  .shop-row .folder-wrap.folder-with-subfolders.folder-image {
+    position: relative;
+    border: none;
+    border-radius: 7px;
+    height: calc(100% - 25px);
+    margin: 0;
+  }
+  .shop-row .folder-wrap .files-group {
+    position: absolute;
+    box-sizing: content-box;
+    bottom: 95px;
+    left: 7%;
+    width: 86%;
+    z-index: -1;
+    top: unset;
+  }
+  .shop-row .folder-wrap .folder-sub-front {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+  }
+  .shop-row .folder-wrap .folder-sub-back {
+    position: relative;
+    margin-left: 30.2px;
+    width: calc(100% - 30.2px);
+    height: auto;
+    z-index: -3;
+  }
+  .shop-row .folder-wrap .folder-sub {
+    position: absolute;
+    margin-left: 16px;
+    width: calc(100% - 16px);
+    height: auto;
+    bottom: 0;
+    right: 0;
+    z-index: -2;
+    -webkit-transition: all 0.25s ease-out;
+    -moz-transition: all 0.25s ease-out;
+    -ms-transition: all 0.25s ease-out;
+    transition: all 0.25s ease-out;
+  }
+}
+
+.product-countdown-unlimited,
+.product-countdown {
+  position: absolute;
+  z-index: 100;
+  left: 0;
+  right: 0;
+  top: 80px;
+  width: 80%;
+  margin: auto;
+  padding: 15px;
+  background-color: white;
+  border-radius: 5px;
+}
+@media (max-width: 1399px) and (min-width: 1200px) {
+  .product-countdown-unlimited,
+  .product-countdown {
+    top: 50px;
+  }
+}
+@media (max-width: 1199px) and (min-width: 992px) {
+  .product-countdown-unlimited,
+  .product-countdown {
+    top: 70px;
+  }
+}
+.product-countdown-unlimited .course-available,
+.product-countdown .course-available {
+  text-align: center;
+  margin-bottom: 5px;
+}
+.product-countdown-unlimited .cd-digit-wrapper,
+.product-countdown .cd-digit-wrapper {
+  display: flex;
+  justify-content: center;
+}
+.product-countdown-unlimited .cd-digit-wrapper .iconmoon{
+  font-size: 41px;
+  line-height: 32px;
+  position: relative;
+  top: 2px;
+  z-index: 99;
+}
+.product-countdown .cd-digit-wrapper .cd-section {
+  width: 30px;
+  position: relative;
+}
+.product-countdown .cd-digit-wrapper .cd-section:not(:last-child):after {
+  content: ":";
+  position: absolute;
+  right: -1px;
+  top: -1px;
+}
+.product-countdown .cd-digit-wrapper .cd-digit {
+  text-align: center;
+  font-weight: bold;
+  height: 23px;
+}
+.product-countdown .cd-digit-wrapper .cd-digit-name {
+  text-align: center;
+  font-size: 1.4rem;
+  margin-top: -5px;
+}

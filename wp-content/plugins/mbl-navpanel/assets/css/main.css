@@ -1,0 +1,161 @@
+@-webkit-keyframes menu_slide {
+  100% {
+    left: 0;
+  }
+}
+@keyframes menu_slide {
+  100% {
+    left: 0;
+  }
+}
+@-webkit-keyframes menu_slide-right {
+  100% {
+    right: 0;
+  }
+}
+@keyframes menu_slide-right {
+  100% {
+    right: 0;
+  }
+}
+#mbli3-telegram-login-desktop > *,
+#mbli3-telegram-login-mobile > * {
+  padding-top: 10px;
+  padding-left: 3px !important;
+  width: 220px;
+  background-color: #54A9EB;
+}
+#mbli3-telegram-login-desktop > * a:hover,
+#mbli3-telegram-login-mobile > * a:hover {
+  color: #2E2E2E;
+  background-color: #54A9EB;
+}
+
+body .mbli3-left-menu {
+  display: none;
+  left: -400px;
+}
+body .mbli3-left-menu.transfer-to-right {
+  left: unset;
+  right: -400px;
+}
+body .menu-opened .mbli3-left-menu-holder {
+  position: relative;
+  overflow-x: hidden;
+}
+body .menu-opened.mbli3-left-menu {
+  position: fixed;
+  top: 0;
+  width: 400px;
+  z-index: 999999;
+  box-shadow: 1px 0 2px rgba(0, 0, 0, 0.25);
+  overflow-y: auto;
+  height: 100vh;
+  animation: menu_slide 0.2s forwards;
+}
+body .menu-opened.mbli3-left-menu.transfer-to-right {
+  animation: menu_slide-right 0.2s forwards;
+}
+body .menu-opened.mbli3-left-menu.transfer-to-right .mbli3-menu-close {
+  float: left;
+}
+@media (min-width: 768px) {
+  body .menu-opened.mbli3-left-menu {
+    display: block;
+  }
+  body .menu-opened.mbli3-left-menu .container {
+    width: 385px;
+  }
+  body .menu-opened.mbli3-left-menu .mbli3-menu-close {
+    font-size: 26px;
+    display: block;
+    float: right;
+    margin-top: 15px;
+  }
+  body .menu-opened.mbli3-left-menu .mbli3-page-title {
+    padding: 0 22px 0;
+  }
+  body .menu-opened.mbli3-left-menu .material-item {
+    overflow: hidden;
+    margin-bottom: 30px;
+    position: relative;
+    transition: none !important;
+  }
+  body .menu-opened.mbli3-left-menu .material-item .flex-wrap {
+    display: flex;
+    align-items: stretch;
+    transition: none !important;
+    flex-direction: column;
+    height: auto;
+  }
+  body .menu-opened.mbli3-left-menu .material-item .col-thumb,
+body .menu-opened.mbli3-left-menu .material-item .col-content {
+    position: relative;
+    min-height: 1px;
+    box-sizing: border-box;
+    height: auto;
+  }
+  body .menu-opened.mbli3-left-menu .material-item .col-thumb {
+    width: 100%;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 0;
+  }
+  body .menu-opened.mbli3-left-menu .material-item .col-content {
+    width: 100%;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+  }
+  body .menu-opened.mbli3-left-menu .material-item .thumbnail-wrap .icons-bottom .icons .views {
+    display: inline-block;
+    float: right;
+    margin: 1px 5px;
+    font-size: 1.1rem;
+    line-height: 1.5rem;
+  }
+  body .menu-opened.mbli3-left-menu .material-item .thumbnail-wrap .icons-bottom .icons .date {
+    display: inline-block;
+    margin: 1px 5px;
+    font-size: 1.1rem;
+    line-height: 1.5rem;
+    float: right;
+  }
+  body .menu-opened.mbli3-left-menu .material-item .thumbnail-wrap .icons-bottom .icons .date span {
+    margin-right: 3px;
+  }
+  body .menu-opened.mbli3-left-menu .material-item .thumbnail-wrap .icons-bottom .icons .comments {
+    display: inline-block;
+    margin: 1px 5px;
+    font-size: 1.1rem;
+    line-height: 1.5rem;
+    float: right;
+  }
+  body .menu-opened.mbli3-left-menu .material-item .thumbnail-wrap .icons-bottom .icons .comments span {
+    margin-right: 3px;
+  }
+  body .menu-opened.mbli3-left-menu .material-item .content-wrap {
+    padding: 25px 20px 0;
+  }
+  body .menu-opened.mbli3-left-menu .current-post .material-item .col-thumb:before {
+    visibility: visible;
+    opacity: 0.3;
+  }
+  body .menu-opened.mbli3-left-menu .current-post .material-item .content-wrap {
+    opacity: 0.3;
+  }
+}
+
+#mbli3-telegram-chat .materials-row .container {
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
+#mbli3-telegram-login-mobile {
+  background: #54A9EB;
+}
+#mbli3-telegram-login-mobile .wptelegram-login-output-wrap.container {
+  margin-left: 0;
+  padding: 10px 0 5px;
+}
+
+/*# sourceMappingURL=main.css.map */

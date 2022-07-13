@@ -1,0 +1,170 @@
+@charset "UTF-8";
+.mbl_test_rev_link i {
+  color: #bbbbbb;
+}
+
+.mbl-test ~ .question {
+  display: none;
+}
+.mbl-test ~ #homework-response-content {
+  display: none;
+}
+.mbl-test ~ #homework-response-wrapper + div {
+  display: none;
+}
+.mbl-test .mbl-tests_hide-show_btn,
+.mbl-test .mbl-tests_edit_btn {
+  display: block;
+  margin: auto;
+}
+.mbl-test .mbl-tests_hide-show_btn.active span:first-child,
+.mbl-test .mbl-tests_edit_btn.active span:first-child {
+  display: none;
+}
+.mbl-test .mbl-tests_hide-show_btn:not(.active) span:last-child,
+.mbl-test .mbl-tests_edit_btn:not(.active) span:last-child {
+  display: none;
+}
+.mbl-test .mbl-tests_hide-show_btn {
+  margin-top: 20px;
+}
+.mbl-test .mbl-tests_edit_btn {
+  margin-top: -10px;
+}
+.mbl-test .mbl-test-form button:not([aria-controls]) {
+  width: auto;
+  position: relative;
+}
+.mbl-test .mbl-test-form button:not([aria-controls]) .disable-message {
+  display: none;
+  position: absolute;
+  bottom: calc(100% + 15px);
+  right: 0;
+  left: 0;
+  color: white;
+  background: #c7cac7;
+  border-radius: 5px;
+  padding: 6px;
+  white-space: normal;
+}
+.mbl-test .mbl-test-form button:not([aria-controls]) .disable-message:before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  border-style: solid;
+  border-width: 15px 10px 0 10px;
+  border-color: #c7cac7 transparent transparent transparent;
+}
+.mbl-test .mbl-test-form button:not([aria-controls])[disabled]:hover .disable-message {
+  display: block;
+}
+.mbl-test .mbl-test-questions-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.mbl-test .mbl-test-questions-list > li {
+  margin: 15px 0;
+  padding-bottom: 15px;
+}
+.mbl-test .mbl-test-questions-list > li > span {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.mbl-test .mbl-test-questions-list > li:not(:last-child) {
+  border-bottom: 1px solid #e3e3e3;
+}
+.mbl-test .mbl-test-questions-list .mbl-test-answers-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.mbl-test .mbl-test-questions-list .mbl-test-answers-list > li {
+  display: flex;
+  flex-wrap: wrap;
+}
+.mbl-test .mbl-test-questions-list .mbl-test-answers-list > li > span {
+  min-width: 30px;
+}
+.mbl-test .mbl-test-questions-list .mbl-test-answers-list > li .mbl-test-custom-input {
+  display: none;
+}
+.mbl-test .mbl-test-questions-list .mbl-test-answers-list > li .mbl-test-custom-input[type=radio]:checked + label::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  background-color: #3d84e6;
+  border-radius: 50%;
+}
+.mbl-test .mbl-test-questions-list .mbl-test-answers-list > li .mbl-test-radio {
+  visibility: visible;
+  content: "";
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #3d84e6;
+  width: 16px;
+  height: 16px;
+  border-radius: 15px;
+  border: 1px solid #3d84e6;
+  line-height: 0.3;
+  font-size: 30px;
+  text-align: center;
+  cursor: pointer;
+  margin: 0;
+  margin-right: 10px;
+  margin-top: 4px;
+}
+.mbl-test .mbl-test-questions-list .mbl-test-answers-list > li .mbl-test-custom-input[type=checkbox]:checked + label::before {
+  content: "✓";
+}
+.mbl-test .mbl-test-questions-list .mbl-test-answers-list > li .mbl-test-checkbox {
+  visibility: visible;
+  content: "";
+  display: block;
+  width: 15px;
+  height: 15px;
+  color: #3d84e6;
+  border: 1px solid #3d84e6;
+  border-radius: 2px;
+  line-height: 1;
+  font-size: 14px;
+  text-align: center;
+  cursor: pointer;
+  margin: 0;
+  margin-right: 10px;
+  margin-top: 4px;
+}
+.mbl-test .mbl-test-questions-list .mbl-test-answers-list > li > i {
+  margin-right: 10px;
+}
+.mbl-test .mbl-test-questions-list .mbl-test-answers-list > li .note-editor,
+.mbl-test .mbl-test-questions-list .mbl-test-answers-list > li .test-attach-form,
+.mbl-test .mbl-test-questions-list .mbl-test-answers-list > li .mbl-tests_edit_btn {
+  display: none;
+}
+.mbl-test .mbl-test-questions-list .mbl-test-answers-list > li label.answer-text {
+  max-width: calc(100% - 60px);
+  width: 100%;
+}
+.mbl-test .mbl-test-questions-list .mbl-test-answers-list > li .test-custom-item ~ label.answer-text {
+  width: auto;
+  max-width: unset;
+}
+.mbl-test .mbl-test-questions-list .mbl-test-answers-list > li .mbl-test-custom-input:checked ~ .note-editor {
+  display: block;
+  width: 100%;
+}
+.mbl-test .mbl-test-questions-list .mbl-test-answers-list > li .mbl-test-custom-input:checked ~ .mbl-tests_edit_btn {
+  display: block;
+  margin-left: auto;
+  margin-right: 0;
+}
+.mbl-test .mbl-test-questions-list .mbl-test-answers-list > li .mbl-test-custom-input:checked ~ .test-attach-form {
+  display: block;
+  width: 100%;
+}
+
+/*# sourceMappingURL=front.css.map */

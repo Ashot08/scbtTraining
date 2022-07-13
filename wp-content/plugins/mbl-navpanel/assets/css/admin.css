@@ -1,0 +1,22 @@
+#tab-mbl-nav .wpm-tab-content .wpm-inner-tabs-nav .ui-tabs-active > a {
+  background-color: #8E8E8E !important;
+}
+
+#tab-mbl-nav .wpm-tab-content .wpm-inner-tabs-nav .ui-tabs-active > .telegram_tab {
+  background-color: #54A9EB !important;
+}
+
+.telegram_settings .wpm-row {
+  margin-bottom: 5px;
+}
+.telegram_settings .row {
+  display: flex;
+}
+.telegram_settings .row .col-1 {
+  width: 33.33%;
+}
+.telegram_settings .row .col-2 {
+  width: 66.66%;
+}
+
+/*# sourceMappingURL=admin.css.map */

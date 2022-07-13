@@ -1,0 +1,1 @@
+<li><a href="#tab-mkk-catalog" class="mkk-color-tab"><?php _e('Каталог курсов', 'mbl_admin') ?></a></li>

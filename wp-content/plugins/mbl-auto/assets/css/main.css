@@ -1,0 +1,100 @@
+/* loader-ellipse
+------------------------- */
+.loader-ellipse {
+  font-size: 20px;
+  position: relative;
+  width: 4em;
+  height: 1em;
+  margin: 10px auto;
+}
+
+.loader-ellipse__dot {
+  display: block;
+  width: 1em;
+  height: 1em;
+  border-radius: 0.5em;
+  background: #555;
+  position: absolute;
+  -webkit-animation-duration: 0.5s;
+          animation-duration: 0.5s;
+  -webkit-animation-timing-function: ease;
+          animation-timing-function: ease;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+
+.loader-ellipse__dot:nth-child(1),
+.loader-ellipse__dot:nth-child(2) {
+  left: 0;
+}
+
+.loader-ellipse__dot:nth-child(3) {
+  left: 1.5em;
+}
+
+.loader-ellipse__dot:nth-child(4) {
+  left: 3em;
+}
+
+@-webkit-keyframes reveal {
+  from {
+    -webkit-transform: scale(0.001);
+            transform: scale(0.001);
+  }
+  to {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@keyframes reveal {
+  from {
+    -webkit-transform: scale(0.001);
+            transform: scale(0.001);
+  }
+  to {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@-webkit-keyframes slide {
+  to {
+    -webkit-transform: translateX(1.5em);
+            transform: translateX(1.5em);
+  }
+}
+
+@keyframes slide {
+  to {
+    -webkit-transform: translateX(1.5em);
+            transform: translateX(1.5em);
+  }
+}
+
+.loader-ellipse__dot:nth-child(1) {
+  -webkit-animation-name: reveal;
+          animation-name: reveal;
+}
+
+.loader-ellipse__dot:nth-child(2),
+.loader-ellipse__dot:nth-child(3) {
+  -webkit-animation-name: slide;
+          animation-name: slide;
+}
+
+.loader-ellipse__dot:nth-child(4) {
+  -webkit-animation-name: reveal;
+          animation-name: reveal;
+  animation-direction: reverse;
+}
+
+#mbla-status-loader {
+  margin-top: 150px;
+}
+
+.top-nav-row .nav-item .fa {
+  font-size: 1.3rem;
+  margin-right: 10px;
+}
+/*# sourceMappingURL=main.css.map */

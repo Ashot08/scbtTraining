@@ -1,0 +1,208 @@
+$menuWidth: 400;
+$menuStartFrom: 768;
+
+@-webkit-keyframes menu_slide {
+  100% {
+    left: 0;
+  }
+}
+
+@keyframes menu_slide {
+  100% {
+    left: 0;
+  }
+}
+
+
+@-webkit-keyframes menu_slide-right {
+  100% {
+    right: 0;
+  }
+}
+
+@keyframes menu_slide-right {
+  100% {
+    right: 0;
+  }
+}
+
+#mbli3-telegram-login-desktop > *,
+#mbli3-telegram-login-mobile > * {
+  padding-top: 10px;
+  padding-left: 3px !important;
+  width: 220px;
+  background-color: #54A9EB;
+
+  a:hover {
+    color: #2E2E2E;
+    background-color: #54A9EB;
+
+  }
+}
+
+body {
+  .mbli3-left-menu {
+    display: none;
+    left: -#{$menuWidth}px;
+
+    &.transfer-to-right {
+      left: unset;
+      right: -#{$menuWidth}px;
+    }
+  }
+
+  .menu-opened {
+
+    .mbli3-left-menu-holder {
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    &.mbli3-left-menu {
+      position: fixed;
+      top: 0;
+      width: #{$menuWidth}px;
+      z-index: 999999;
+      box-shadow: 1px 0 2px rgba(0, 0, 0, 0.25);
+      overflow-y: auto;
+      height: 100vh;
+      animation: menu_slide .2s forwards;
+
+      &.transfer-to-right {
+        animation: menu_slide-right .2s forwards;
+
+        .mbli3-menu-close {
+          float: left;
+        }
+      }
+
+      @media (min-width: #{$menuStartFrom}px) {
+        display: block;
+
+        .container {
+          width: #{$menuWidth - 15}px;
+        }
+
+        .mbli3-menu-close {
+          font-size: 26px;
+          display: block;
+          float: right;
+          margin-top: 15px;
+        }
+
+        .mbli3-page-title {
+          padding: 0 22px 0;
+        }
+
+
+        .material-item {
+          overflow: hidden;
+          margin-bottom: 30px;
+          position: relative;
+          transition: none !important;
+
+          .flex-wrap {
+            display: flex;
+            align-items: stretch;
+            transition: none !important;
+            flex-direction: column;
+            height: auto;
+          }
+
+          .col-thumb,
+          .col-content {
+            position: relative;
+            min-height: 1px;
+            box-sizing: border-box;
+            height: auto;
+          }
+
+          .col-thumb {
+            width: 100%;
+            border-top-right-radius: 5px;
+            border-bottom-left-radius: 0;
+          }
+
+          .col-content {
+            width: 100%;
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 5px;
+            border-bottom-left-radius: 5px;
+          }
+
+          .thumbnail-wrap {
+
+            .icons-bottom {
+              .icons {
+                .views {
+                  display: inline-block;
+                  float: right;
+                  margin: 1px 5px;
+                  font-size: 1.1rem;
+                  line-height: 1.5rem;
+                }
+
+                .date {
+                  display: inline-block;
+                  margin: 1px 5px;
+                  font-size: 1.1rem;
+                  line-height: 1.5rem;
+                  float: right;
+
+                  span {
+                    margin-right: 3px;
+                  }
+                }
+
+                .comments {
+                  display: inline-block;
+                  margin: 1px 5px;
+                  font-size: 1.1rem;
+                  line-height: 1.5rem;
+                  float: right;
+
+                  span {
+                    margin-right: 3px;
+                  }
+                }
+              }
+            }
+          }
+
+          .content-wrap {
+            padding: 25px 20px 0;
+          }
+        }
+
+        .current-post {
+          .material-item {
+            .col-thumb {
+              &:before {
+                visibility: visible;
+                opacity: .3;
+              }
+            }
+
+            .content-wrap {
+              opacity: .3;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+#mbli3-telegram-chat .materials-row .container {
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
+#mbli3-telegram-login-mobile {
+  background: #54A9EB;
+  
+  .wptelegram-login-output-wrap.container {
+    margin-left: 0;
+    padding: 10px 0 5px;
+  }
+}

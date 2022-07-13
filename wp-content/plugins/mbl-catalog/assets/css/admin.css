@@ -1,0 +1,7 @@
+#mbl_key_course_catalog.woocommerce_options_panel p.form-field {
+    padding-left: 10px !important;
+}
+#mbl_key_course_catalog.woocommerce_options_panel label {
+    width: 100%;
+    margin-left: 0;
+}

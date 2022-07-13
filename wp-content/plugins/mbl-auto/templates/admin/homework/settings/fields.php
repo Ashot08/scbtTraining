@@ -1,0 +1,2 @@
+<?php $label = '<i class="fa fa-user-circle-o" aria-hidden="true"></i>' . __('Тренер', 'mbl_admin') ?>
+<?php wpm_render_partial('options/checkbox-row', 'admin', ['label' => $label, 'key' => 'hw.enabled_fields.coach', 'default' => 'on']) ?>

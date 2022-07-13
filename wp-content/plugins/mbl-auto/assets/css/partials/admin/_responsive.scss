@@ -1,0 +1,430 @@
+.mbl-filter-toggle-th,
+.mbl-search-th {
+  display: none;
+}
+
+@media (max-width: 1250px) {
+  #wpm-hw-content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .mbl-homework-wrap .mbl-dates-select .mbl-dates-popup {
+    padding: 0 !important;
+
+    .flex-row > div {
+      padding-right: 0 !important;
+    }
+  }
+
+  .mbl-hw-actions {
+    display: flex !important;
+    align-items: center;
+    margin-top: 15px;
+
+    .buttons.opened {
+      display: flex !important;
+      flex: 1;
+      //padding-left: 5px;
+
+      > a {
+        width: 24px;
+        margin-left: calc(33% - 12px)!important;
+      }
+    }
+  }
+
+  .mbl-homework-wrap #wpm-hw-select-all-action {
+    .buttons.opened {
+      display: flex !important;
+      flex: 1;
+
+      > a {
+        width: 24px;
+        margin-right: 0!important;
+        margin-left: calc(33% - 12px);
+      }
+    }
+  }
+
+
+  #wpm-hw-select-all-action {
+    .buttons.opened {
+      a:not(:last-child) {
+        margin-right: 40px;
+
+        @media (max-width: 365px) {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+
+  .mbl-homework-wrap #wpm-hw-filter-search {
+    display: none;
+  }
+
+  .wpm-page_page_wpm-autotraining {
+    input[type='checkbox'] {
+      width: 15px;
+      height: 15px;
+
+      &:checked::before {
+        width: 15px;
+        height: 15px;
+        margin: 0;
+      }
+    }
+  }
+
+  .mbl-homework-wrap .mbl-hw-first-tr {
+    display: flex;
+    align-items: center;
+    flex-flow: row wrap;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-bottom: 10px;
+
+    .mbl-dates-select.opened {
+      position: relative;
+    }
+
+    > * {
+      box-sizing: border-box;
+    }
+
+    > th {
+      display: none;
+      border-bottom: none;
+      order: 3;
+
+      &:not([class]) {
+        flex: 0 0 100%;
+        text-align: center;
+      }
+
+      .mbl-filter-visible &:not(.mbl-search-th) {
+        display: block;
+      }
+    }
+
+    .mbl-search-th {
+      order: 999;
+      width: 100%;
+
+      .mbl-search-visible & {
+        display: block;
+      }
+
+      .search-box {
+        position: static;
+        width: 100%;
+        float: none;
+        text-align: center;
+
+        input {
+          min-height: 40px;
+        }
+
+        input:not([type="submit"]) {
+          width: 100%;
+          margin: 0;
+          margin-bottom: 5px;
+        }
+      }
+    }
+
+    .mbl-filter-toggle-th {
+      cursor: pointer;
+      display: block;
+      font-size: 20px;
+      padding-left: 4px;
+      padding-right: 4px;
+      order: 2;
+      flex: 0 0 20px;
+      text-align: center;
+      line-height: 1;
+      margin-left: auto;
+      color: #808080;
+
+      .mbl-filter-visible &:not(.mbl-search-toggle-th) {
+        color: #5b97f1;
+      }
+
+      &.mbl-search-toggle-th {
+        margin-left: 0;
+
+        .mbl-search-visible & {
+          color: #5b97f1;
+        }
+      }
+
+      span {
+        display: inline-block;
+        font-size: 10px;
+        margin-top: -2px;
+      }
+    }
+
+    .wpm-status-filters-th {
+      display: block;
+      flex: 0 0 calc(80% - 70px);
+      max-width: calc(80% - 70px);
+      padding-left: 0;
+      order: 1;
+
+      .wpm-status-filters {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        width: 100%;
+
+        .wpm-status-nb {
+          font-size: 10px;
+        }
+
+        a {
+          padding-left: 4px;
+          padding-right: 4px;
+
+          &:first-child {
+            padding-left: 0;
+          }
+        }
+      }
+    }
+  }
+
+  .mbl-homework-wrap #mbl_hw_order_buttons {
+    display: flex;
+    justify-content: space-around;
+    flex-flow: row wrap;
+    height: auto !important;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-bottom: 1px solid #ccd0d4;
+
+    .hw-column i.fa {
+      font-size: 20px;
+    }
+
+    .mbl-hw-select-all-th {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      order: 2;
+      margin-top: 20px;
+      margin-bottom: 5px;
+
+      #wpm-hw-select-all-action {
+        display: flex;
+        flex: 1;
+        padding-left: 5px;
+      }
+    }
+
+    th {
+      border-bottom: none;
+      padding: 5px;
+      order: 1;
+    }
+
+    .column-actions {
+      display: none;
+    }
+  }
+
+  .mbl-homework-wrap .hw-column {
+    position: relative;
+    width: auto !important;
+
+    &::after {
+      position: absolute !important;
+      left: 50%;
+      transform: translateX(-50%);
+      margin-top: calc(100% - 5px);
+      margin-left: 0 !important;
+    }
+  }
+
+  .wpm-hw-table.fixed {
+    display: flex;
+    flex-direction: column;
+    table-layout: unset;
+  }
+
+  .wpm-hw-table.fixed .mbl-hw-content-row {
+    position: relative;
+    display: flex;
+    flex-flow: row wrap;
+    padding-left: 5px;
+    padding-right: 5px;
+
+    td {
+      display: flex;
+      align-items: center;
+      padding: 5px;
+    }
+
+    td::before {
+      font-family: 'FontAwesome';
+      margin-right: 5px;
+    }
+
+    .mbl-hw-user {
+      display: flex;
+      align-items: center;
+      font-weight: 700;
+      flex: 0 0 calc(100% - 60px);
+      max-width: calc(100% - 60px);
+      line-height: 1.2;
+      padding-left: 0;
+      padding-right: 0;
+      margin-left: -2px;
+
+      .fa {
+        font-size: 18px;
+        vertical-align: top;
+        margin-right: 5px;
+      }
+    }
+
+    .mbl-hw-type {
+      i::after {
+        content: attr(data-original-title);
+        font-size: 13px;
+        font-weight: 500;
+        line-height: 1.5em;
+        vertical-align: top;
+        color: #555;
+        margin-left: 4px;
+        display: inline-block;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+          Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+      }
+    }
+
+    .mbl-hw-date {
+      span {
+        display: none;
+      }
+    }
+
+    .mbl-hw-date::before {
+      content: '\f073';
+    }
+
+    .mbl-hw-datetime::before {
+      content: '\f017';
+    }
+
+    .mbl-hw-comments::before {
+      content: '\f0e5';
+    }
+
+    .mbl-hw-categories::before {
+      content: '\f115';
+    }
+
+    .mbl-hw-materials::before {
+      content: '\f0f6';
+    }
+
+    .mbl-hw-levels::before {
+      content: '\f0e8';
+    }
+
+    .mbl-hw-coach::before {
+      content: '\f2be';
+    }
+
+    .mbl-row-toggler {
+      position: absolute;
+      top: 5px;
+      right: 0;
+      padding-right: 10px !important;
+    }
+  }
+
+  .mbl-homework-wrap .hw-column span {
+    display: none;
+  }
+
+  .mbl-homework-wrap .homework-attachments {
+    display: flex;
+    flex-flow: row wrap;
+  }
+
+  .mbl-homework-wrap .homework-attachments a {
+    flex: 0 0 50%;
+    max-width: 50%;
+    height: auto !important;
+  }
+
+  .mbl-homework-wrap #wpm-hw-content td.details-row .mbl-hw-actions-row > div {
+    width: auto !important;
+    position: absolute !important;
+    top: 5px;
+    right: 0;
+  }
+
+  .mbl-details-row {
+    display: flex;
+    width: 100%;
+  }
+
+  .mbl-details-row .details-row {
+    overflow: hidden;
+  }
+
+  .mbl-details-row .details-row,
+  .mbl-details-row .mbl-hw-details-row-inner,
+  .mbl-details-row .mbl-hw-details-row-inner .panel {
+    width: 100%;
+  }
+
+  #mbl_hw_settings_pane .wpm-row {
+    padding-right: 0 !important;
+
+    .search-box {
+      input[type="search"] {
+        max-width: 150px;
+      }
+    }
+  }
+
+  #mbl_hw_settings_pane .flex-row {
+    flex-direction: column;
+
+    .wpm-row {
+      margin-top: 5px;
+      margin-bottom: 5px;
+    }
+  }
+
+  .mbl-homework-wrap .wpm_homework_reviews .comment-item .comment-meta {
+    display: flex;
+    flex-flow: row wrap;
+
+    .comment-author-name {
+      width: 100%;
+    }
+  }
+
+  .mbl-details-row .mbl-hw-details-row-inner .panel {
+    margin: 0;
+    padding: 0;
+    border: 0;
+
+    .panel-heading {
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    .nav-tabs > li > a {
+      padding-right: 7px;
+      padding-left: 7px;
+      margin-right: 0;
+    }
+  }
+}

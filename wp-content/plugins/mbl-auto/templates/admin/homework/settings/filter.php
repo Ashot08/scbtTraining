@@ -1,0 +1,2 @@
+<?php $label = wpm_render_partial('homework/select-imitation', 'admin', ['label' => __('Все тренеры', 'mbl_admin')], true) ?>
+<?php wpm_render_partial('options/checkbox-row', 'admin', ['label' => $label, 'key' => 'hw.enabled_filters.coach', 'default' => 'on']) ?>

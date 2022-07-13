@@ -1,0 +1,9 @@
+.wpm-tabs .tabs-nav .ui-tabs-active .autocheck-color-tab {
+    background-color: #927754 !important;
+}
+
+.autocheck-color-content {
+    box-shadow: #927754 4px 4px 0 0 !important;
+    border: 2px solid #32373c !important;
+    background-color: #fff !important;
+}

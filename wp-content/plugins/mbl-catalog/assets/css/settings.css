@@ -1,0 +1,49 @@
+#tab-mkk-catalog h3:first-child {
+  margin-top: 0;
+}
+#tab-mkk-catalog .row {
+  display: flex;
+}
+#tab-mkk-catalog .row .wpm-row {
+  margin: 0;
+  margin-right: 25px;
+}
+#tab-mkk-catalog .row .wpm-row:last-child {
+  margin: 0;
+}
+#tab-mkk-catalog .row .col:not(:last-child) {
+  margin-right: 15px;
+}
+#tab-mkk-catalog .row .col input.color {
+  width: 100%;
+}
+#tab-mkk-catalog .row .col-33 {
+  min-width: calc(33.3% - 10px);
+}
+#tab-mkk-catalog .row .col-33 .wpm-control-row {
+  margin-top: 0;
+}
+#tab-mkk-catalog .d-flex {
+  display: flex;
+}
+#tab-mkk-catalog .column {
+  flex-direction: column;
+}
+#tab-mkk-catalog .justify-end {
+  justify-content: flex-end;
+}
+#tab-mkk-catalog .mb-15 {
+  margin-bottom: 15px;
+}
+#tab-mkk-catalog .mt-15 {
+  margin-top: 15px;
+}
+
+.mkk-color-content {
+  box-shadow: #664EA6 4px 4px 0 0 !important;
+  border: 2px solid #32373c !important;
+  background-color: #fff !important;
+}
+.wpm-tabs .tabs-nav .ui-tabs-active .mkk-color-tab {
+  background-color: #664EA6 !important;
+}

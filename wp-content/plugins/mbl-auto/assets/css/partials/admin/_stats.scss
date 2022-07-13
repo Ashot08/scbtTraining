@@ -1,0 +1,399 @@
+.mbla-stats-filter-row {
+  @media screen and (max-width: 782px) {
+    flex-direction: column;
+    justify-content: space-evenly;
+    min-height: 400px;
+    max-width: 350px;
+    margin: 0 auto;
+
+    @at-root .mbla-stats-filter-block:not(.opened) & {
+      display: none;
+    }
+  }
+
+  .flex-col-filters-stats {
+    width: 100%;
+    box-sizing: border-box;
+    max-width: 515px;
+  }
+
+  .ui-datepicker-title {
+    text-align: center;
+  }
+
+  table.ui-datepicker-calendar {
+    width: 100%;
+    text-align: center;
+
+    td,
+    th {
+      padding: 0;
+      border: none;
+      text-align: center;
+    }
+
+    th {
+      font-weight: bold;
+    }
+  }
+}
+
+.mbla-note {
+  padding: 15px;
+  background: #f1f1f1;
+  border-radius: 3px;
+  border: 1px solid #dddddd;
+}
+
+.wpma-stats-users {
+  min-height: 153px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  padding-bottom: 15px;
+  box-sizing: border-box;
+
+  @media screen and (max-width: 782px) {
+    height: auto;
+  }
+}
+
+.mbla-stats-filter-button {
+  text-align: center;
+  padding: 20px 0;
+  font-size: 16px;
+  cursor: pointer;
+
+  .mbla-filters-icon {
+    font-size: 24px;
+    border: 1px solid;
+    border-radius: 3px;
+    display: inline-block;
+    padding: 2px 3px;
+    margin-right: 10px;
+    position: relative;
+    top: 3px;
+  }
+
+  .mbla-filters-closed {
+    font-size: 20px;
+    margin-left: 10px;
+  }
+
+  .mbla-filters-opened {
+    margin-left: 10px;
+    font-size: 20px;
+    display: none;
+  }
+
+  @at-root .mbla-stats-filter-block.opened & {
+    color: #0c78b9;
+
+    .mbla-filters-closed {
+      display: none;
+    }
+
+    .mbla-filters-opened {
+      display: inline-block;
+    }
+  }
+}
+
+.mbla-select-wrap {
+  clear: both;
+  padding-bottom: 10px;
+
+  i.fa {
+    font-size: 28px;
+    margin-right: 5px;
+    float: left;
+    width: 30px;
+  }
+
+  select {
+    width: calc(100% - 60px);
+  }
+
+  .select2 {
+    min-width: calc(100% - 60px);
+    width: calc(100% - 60px) !important;
+
+    *:focus {
+      outline: none;
+    }
+  }
+
+  .select2-container--default .select2-selection--single .select2-selection__placeholder {
+    color: inherit;
+  }
+}
+
+.select2-results {
+  display: block;
+  z-index: 9;
+  transform: translate3d(0, 0, 0);
+}
+
+.select2-container--open .select2-dropdown--below {
+  transform: translate3d(0, 0, 0);
+}
+
+.mbla-dates-select {
+  .mbla-dates-popup {
+    display: none;
+    max-width: 100%;
+    width: 500px;
+    background: #fff;
+    position: absolute;
+    z-index: 9;
+    margin-top: -28px;
+    padding: 0 5px 15px 15px;
+
+    @media screen and (max-width: 782px) {
+      width: auto;
+
+      .flex-row {
+        justify-content: center;
+
+        > div {
+          margin-bottom: 10px;
+        }
+      }
+    }
+
+    .date-title {
+      color: #444;
+      line-height: 28px;
+    }
+
+    .mbla-date-label {
+      font-size: 16px;
+      text-align: center;
+      margin-bottom: 5px;
+      font-style: italic;
+    }
+
+    .ui-datepicker {
+      box-shadow: none;
+    }
+
+    .ui-datepicker-today > a {
+      background: #aaaaaa;
+      color: #ffffff !important;
+    }
+
+    .ui-datepicker .ui-state-default:hover, .ui-datepicker-current-day > a, .ui-timepicker .ui-state-default:hover, .ui-datepicker .ui-state-active, .ui-timepicker .ui-state-active {
+      background: #30a957;
+      color: #ffffff !important;
+      cursor: pointer;
+    }
+
+    .mbla-dates-buttons {
+      text-align: right;
+      padding: 15px 10px 0;
+      line-height: 30px;
+
+      @media screen and (max-width: 782px) {
+        text-align: center;
+        padding: 15px 0 0;
+      }
+
+      a {
+        width: 100px;
+        display: inline-block;
+        text-align: center;
+
+      }
+    }
+  }
+
+  &.opened {
+    .mbla-dates-popup {
+      display: block;
+    }
+  }
+
+  .mbla-date {
+    display: block;
+  }
+}
+
+.wpma-status-filter {
+  margin-top: 0;
+  margin-bottom: 12.5px;
+  overflow: visible;
+
+  i.fa {
+    font-size: 24px;
+    position: relative;
+    top: 3px;
+    width: 28px;
+    text-align: center;
+  }
+
+  &.opened i {
+    color: #fa9d11;
+  }
+
+  &.approved i {
+    color: #47ad47;
+  }
+
+  &.accepted i {
+    color: #0c5bac;
+  }
+
+  &.rejected i {
+    color: #d32527;
+  }
+}
+
+.wp-core-ui .wpma-actions {
+  button.button {
+    width: 120px;
+    margin-right: 10px;
+
+    @media screen and (max-width: 1100px) {
+      width: calc(50% - 15px);
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+}
+
+.wpma-user-row {
+  margin-bottom: 5px;
+
+  i.fa {
+    font-size: 18px;
+    width: 24px;
+    text-align: center;
+  }
+}
+
+.mbla-stats-filter-block {
+  padding-bottom: 5px;
+}
+
+.wpma-chart-section {
+  border-top: 1px solid #ccc;
+  padding: 20px 0;
+  min-height: 190px;
+  box-sizing: border-box;
+  position: relative;
+
+  @media screen and (max-width: 782px) {
+    height: 230px;
+  }
+
+  .wpma-stats-chart-holder {
+    width: 300px;
+    text-align: left;
+    position: absolute;
+
+    @media screen and (max-width: 782px) {
+      width: 70%;
+      max-width: 300px;
+      margin-left: 0;
+      margin-top: 40px;
+
+      canvas {
+        margin-left: -15%;
+      }
+    }
+  }
+
+  .wpma-stats-description {
+    min-width: 40%;
+    margin-top: 10px;
+  }
+
+  .wpma-stats-details {
+    margin-top: 15px;
+    padding-left: 300px;
+
+    @media screen and (max-width: 782px) {
+      flex-direction: column;
+      margin-top: 15px;
+      height: 29vw;
+      justify-content: space-evenly;
+      max-height: 150px;
+      min-height: 115px;
+    }
+    @media screen and (max-width: 500px) {
+      padding-left: 50%;
+    }
+  }
+
+  .wpma-stats-total {
+    font-weight: bold;
+    padding-left: 300px;
+
+    @media screen and (max-width: 782px) {
+      max-width: 300px;
+      margin-left: 7.5%;
+      text-align: left;
+      padding-left: 0;
+    }
+  }
+
+  .wpma-user-name {
+    font-weight: bold;
+    margin-right: 15px;
+  }
+
+  .wpma-stats-value {
+    font-size: 16px;
+    margin-right: 15px;
+    //margin-bottom: 5px;
+
+    i {
+      margin-right: 3px;
+      font-size: 24px;
+      position: relative;
+      top: 3px;
+    }
+
+    &.opened i {
+      color: #fa9d11;
+    }
+
+    &.approved i {
+      color: #47ad47;
+    }
+
+    &.accepted i {
+      color: #0c5bac;
+    }
+
+    &.rejected i {
+      color: #d32527;
+    }
+
+    &.dimmed i.fa {
+      color: lighten(#444, 30%);
+    }
+  }
+
+  .wpma-stats-access {
+    margin-top: 15px;
+    padding-left: 300px;
+
+    @media screen and (max-width: 782px) {
+      display: none;
+    }
+
+    .wpma-stats-access-title {
+      text-decoration: underline;
+    }
+
+    .wpma-stats-access-content {
+      font-weight: bold;
+
+      i {
+        font-size: 18px;
+        margin-left: 5px;
+      }
+    }
+  }
+}

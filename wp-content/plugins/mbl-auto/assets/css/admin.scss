@@ -1,0 +1,81 @@
+@import 'partials/admin/stats';
+@import 'partials/admin/homework';
+@import 'partials/admin/loader';
+@import 'partials/admin/options';
+
+.mbla-map-icon {
+  font-size: 18px;
+  margin-right: 5px;
+  position: relative;
+  top: 2px;
+}
+
+.mbla-map-coaches {
+  margin-top: 10px;
+  margin-left: -1px;
+
+  .mbla-map-coach {
+    i.fa {
+      font-size: 16px;
+      position: relative;
+      top: 1px;
+    }
+
+    a {
+      color: #444;
+      text-decoration: none;
+
+      &:hover {
+        color: darken(#444, 30%);
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+#mbla_coach_access_holder {
+  display: none;
+}
+
+.mbla-autotraining-config-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  .wpm-row {
+    width: 350px;
+    margin: 0;
+  }
+}
+
+.select-row {
+    display: flex;
+    align-items: center;
+    i {
+        margin-right: 5px;
+    }
+}
+
+.mbla-bold {
+  font-weight: bold;
+}
+
+.wpma_disabled_field {
+  &:before {
+    content: ' ';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 1;
+    cursor: not-allowed;
+  }
+
+  position: relative;
+  opacity: 0.5;
+}
+
+.mbla_coach_access_level_holder {
+  margin-left: 15px;
+  
+}
+
+@import 'partials/admin/responsive';

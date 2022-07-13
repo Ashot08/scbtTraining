@@ -1,0 +1,1 @@
+<input type="text" name="excerpt" id="excerpt" class="mblp-excerpt" value="<?php echo htmlspecialchars_decode( $post->post_excerpt, ENT_QUOTES ); ?>">

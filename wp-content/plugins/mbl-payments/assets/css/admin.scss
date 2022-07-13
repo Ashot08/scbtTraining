@@ -1,0 +1,222 @@
+#post-body #woocommerce-product-data ul.wc-tabs.product_data_tabs {
+  li.general_options.general_tab a::before {
+    content: "\f323";
+  }
+
+  li.linked_product_options a::before {
+    content: "\f503";
+  }
+
+  li.demo_options a::before {
+    content: "\f112";
+  }
+
+  li.cart_link_options a::before {
+    content: "\f103";
+  }
+
+  li.preview_type_options a::before {
+    content: "\f100";
+  }
+
+  li.letter_options a::before {
+    content: "\f467";
+  }
+
+  li.visibility_options a::before {
+    content: "\f177";
+  }
+}
+
+#_ipr_codes {
+  height: auto;
+}
+
+#excerpt.mblp-excerpt {
+  height: 3em;
+}
+
+.wp-core-ui .woocommerce_options_panel {
+  .mblp-product-link-content {
+    a[data-mbl-tooltip] {
+      font-size: 21px;
+      text-decoration: none;
+    }
+
+    button.button {
+      margin-left: 30px;
+      position: relative;
+      top: -4px;
+    }
+  }
+
+  .mblp-product-link-text {
+    color: #848484;
+    padding-left: 12px;
+  }
+
+  .mblp-clip-res {
+    color: #0085ba;
+    margin-left: 10px;
+    top: -4px;
+    position: relative;
+  }
+
+  #_mbl_redirect {
+    margin-left: 30px;
+    position: relative;
+    top: -4px;
+  }
+
+  #mbl_redirect_url {
+    width: calc(50% + 95px);
+    margin-left: 5px;
+    position: relative;
+    top: -4px;
+  }
+
+  ._mblp_is_custom_letter_field {
+    label {
+      float: none;
+      margin-left: 10px;
+      width: auto;
+    }
+  }
+
+  .wpm-inner-tab-content {
+    padding: 5px 9px;
+  }
+
+  &#mbl_key_letter_options {
+    .letter-title {
+      padding: 0;
+    }
+  }
+
+  .mbl_term_keys_period .mbl_term_keys_period_inner {
+    label {
+      float: none;
+      width: auto;
+      margin: 5px 0 0;
+      display: inline-block;
+    }
+
+    .mbl_term_period {
+      margin-left: 5px;
+    }
+  }
+
+  &#mbl_key_visibility_options {
+
+    .wpm-levels-parent {
+
+      input[type="checkbox"] {
+        margin: -2px 4px 0 0;
+      }
+
+      i {
+        color: #898686;
+        font-weight: bold;
+      }
+    }
+
+    p._mbl_key_visibility_level_action_field {
+      padding-left: 9px !important;
+      margin-bottom: 0;
+    }
+
+    .options_group {
+      padding-left: 6px;
+    }
+
+    .wpm-inner-tab-content {
+      label {
+        float: none;
+        width: auto;
+        padding: 0;
+        margin: 0;
+
+        &.mblp_hide_for_not_registered {
+          margin-top: 30px;
+          display: block;
+
+          input[type="checkbox"] {
+            margin: -2px 4px 0 0;
+          }
+        }
+      }
+
+      padding-bottom: 30px;
+    }
+
+
+    ul {
+      margin: 0 0 0 20px;
+      list-style: none;
+      line-height: 2em;
+
+      li {
+        position: relative;
+        margin-bottom: 0;
+
+        &:before {
+          position: absolute;
+          left: -15px;
+          top: 0;
+          content: '';
+          display: block;
+          border-left: 1px solid #ddd;
+          height: 1em;
+          border-bottom: 1px solid #ddd;
+          width: 10px;
+        }
+
+        &:after {
+          position: absolute;
+          left: -15px;
+          bottom: -7px;
+          content: '';
+          display: block;
+          border-left: 1px solid #ddd;
+          height: 100%;
+        }
+      }
+
+      &:last-child {
+        > li {
+          &:last-child {
+            &:after {
+              display: none
+            }
+          }
+        }
+      }
+
+      &.wpm-levels-parent {
+        margin: 0;
+
+        &:before,
+        &:after {
+          display: none;
+        }
+
+        > li {
+          &:before,
+          &:after {
+            display: none;
+          }
+        }
+      }
+
+      &.wpm-levels-children {
+        li {
+          i {
+            display: none;
+          }
+        }
+      }
+    }
+
+  }
+
+}
