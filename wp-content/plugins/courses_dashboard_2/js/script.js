@@ -28,4 +28,12 @@ jQuery(document).on('click', '[data-action="toggle__add_new_student_form"]', fun
 jQuery(document).on('click', '.cd__hidden_form_toggler', function (){
     jQuery(this).parent().find('.cd__hidden_form_box').slideToggle();
 })
+jQuery(document).on('change', '[data-action="cd__table_select_all"]', function (){
+    const table = jQuery(this).closest('.cd__table');
+    const isChecked = jQuery(this).prop('checked');
+    table.find('[data-action="cd__select_item"]').prop('checked', isChecked);
+
+
+})
+
 

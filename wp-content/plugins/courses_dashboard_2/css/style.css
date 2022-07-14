@@ -310,6 +310,15 @@
 .cd__progress_value{
     color: #c50000;
 }
+.cd__table_select_all_label{
+    margin: 0;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+.cd__table_select_all_label input{
+    margin-right: 3px;
+}
 /*.cd__chapters_list_level_1, .cd__chapters_list_level_1 ul, .cd__chapters_list_level_1 li {*/
 /*    margin: 0; padding: 0; line-height: 1.2; list-style: none;*/
 /*}*/

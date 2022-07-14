@@ -12,13 +12,20 @@ function students_control_details($data, $program_id){
 
 <?php if($users_array): ?>
 
-    <table>
+    <table class="cd__table">
         <tbody>
         <tr>
             <th>ID</th>
             <th>Имя</th>
             <th>Логин</th>
-            <th>Прогресс</th>
+            <th>Пароль</th>
+<!--            <th>Прогресс</th>-->
+            <th>
+                <label class="cd__table_select_all_label">
+                    <input type="checkbox" data-action="cd__table_select_all">
+                    Все
+                </label>
+            </th>
         </tr>
         <?php foreach ($users_array as $student_id):?>
 
@@ -27,6 +34,7 @@ function students_control_details($data, $program_id){
             $user_id = $user_info->data->ID;
             $user_name = $user_info->data->display_name;
             $user_login = $user_info->data->user_login;
+            $user_pass = '123';
             //$course_category = new MBLCategory(get_term($program_id), true, true);
             ?>
 
@@ -34,8 +42,14 @@ function students_control_details($data, $program_id){
                 <td><?php echo $user_id; ?></td>
                 <td><?php echo $user_name; ?></td>
                 <td><?php echo $user_login; ?></td>
+                <td><?php echo $user_pass; ?></td>
 <!--                <td>--><?php //echo $course_category->getProgress($user_id); ?><!--%</td>-->
-                <td>0%</td>
+<!--                <td>0%</td>-->
+                <td>
+                    <label>
+                        <input data-action="cd__select_item" data-student_id="<?= $user_id; ?>" type="checkbox">
+                    </label>
+                </td>
             </tr>
 
             <?php endforeach; ?>
