@@ -425,12 +425,11 @@ jQuery(document).on('click', '[data-action="cd__send_student_control_details_doc
     const full_name          = jQuery(this).parent().find('[name="full_name"]').val();
     const program_name       = jQuery(this).parent().find('[name="program_name"]').val();
     const hours              = jQuery(this).parent().find('[name="hours"]').val();
-    const date               = jQuery(this).parent().find('[name="date"]').val();
     const comission_lead     = jQuery(this).parent().find('[name="comission_lead"]').val();
     const comission_member_1 = jQuery(this).parent().find('[name="comission_member_1"]').val();
     const comission_member_2 = jQuery(this).parent().find('[name="comission_member_2"]').val();
     const reg_number         = jQuery(this).parent().find('[name="reg_number"]').val();
-
+    const date               = jQuery(this).parent().find('[name="date"]').val();
 
     cd__send_student_control_details_document (
         full_name,

@@ -399,28 +399,26 @@ function cd__send_program_details_document(){
 add_action('wp_ajax_cd__send_student_control_details_document', 'cd__send_student_control_details_document');
 add_action('wp_ajax_nopriv_cd__send_student_control_details_document', 'cd__send_student_control_details_document');
 function cd__send_student_control_details_document(){
-
-//    $spreadsheet = new \PhpOffice\PhpSpreadsheet\Spreadsheet();
-//    $sheet = $spreadsheet->getActiveSheet();
-//    $sheet->setCellValue('A1', 'Hello World !');
-//
-//
-//    //set the header first, so the result will be treated as an xlsx file.
-//    header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
-//    //make it an attachment so we can define filename
-//    header('Content-Disposition: attachment;filename="result.xlsx"');
-//    //create IOFactory object
-//
-//    $writer = \PhpOffice\PhpSpreadsheet\IOFactory::createWriter($spreadsheet, 'Xlsx');
-//    //save into php output
-//    $writer->save(__DIR__ . '/../views/students_control/result.xlsx');
+    $full_name =          !$_POST['full_name']          ?  '_______________' : $_POST['full_name'];
+    $program_name =       !$_POST['program_name']       ?  '_______________' : $_POST['program_name'];
+    $hours =              !$_POST['hours']              ?  '_______________' : $_POST['hours'];
+    $date =               !$_POST['date']               ?  '_______________' : date("d.m.Y", strtotime($_POST['date']));
+    $comission_lead =     !$_POST['comission_lead']     ?  '_______________' : $_POST['comission_lead'];
+    $comission_member_1 = !$_POST['comission_member_1'] ?  '_______________' : $_POST['comission_member_1'];
+    $comission_member_2 = !$_POST['comission_member_2'] ?  '_______________' : $_POST['comission_member_2'];
+    $reg_number =         !$_POST['reg_number']         ?  '_______________' : $_POST['reg_number'];
 
 
     $spreadsheet = \PhpOffice\PhpSpreadsheet\IOFactory::load(__DIR__ . '/../views/students_control/template.xlsx');
     $worksheet = $spreadsheet->getActiveSheet();
 
-    $worksheet->getCell('C6')->setValue('John');
-    //$worksheet->getCell('A2')->setValue('Smith');
+    $worksheet->getCell('C3')->setValue('Протокол от ' . date("d.m.Y"));
+    $worksheet->getCell('C6')->setValue($full_name);
+    $worksheet->getCell('B8')->setValue("В соответствии с приказом руководителя организации от $date комиссия в составе:");
+    $worksheet->getCell('D10')->setValue($comission_lead);
+    $worksheet->getCell('D12')->setValue($comission_member_1);
+    $worksheet->getCell('D14')->setValue($comission_member_2);
+    $worksheet->getCell('B16')->setValue("провела проверку знаний требований охраны труда по программе: \"$program_name\" в объеме $hours часов");
 
     $writer = \PhpOffice\PhpSpreadsheet\IOFactory::createWriter($spreadsheet, 'Xlsx');
     $writer->save(__DIR__ . '/../views/students_control/result.xlsx');

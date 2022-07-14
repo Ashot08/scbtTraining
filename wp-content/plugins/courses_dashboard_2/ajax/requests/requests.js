@@ -87,7 +87,15 @@ function cd__send_program_details_document ( full_name, short_name, program_name
     )
 }
 
-function cd__send_student_control_details_document ( full_name, program_name, hours ) {
+function cd__send_student_control_details_document (
+    full_name,
+    program_name,
+    hours,
+    date,
+    comission_lead,
+    comission_member_1,
+    comission_member_2,
+    reg_number) {
     return jQuery.ajax(
         {
             method: 'Post',
@@ -97,6 +105,11 @@ function cd__send_student_control_details_document ( full_name, program_name, ho
                 full_name,
                 program_name,
                 hours,
+                date,
+                comission_lead,
+                comission_member_1,
+                comission_member_2,
+                reg_number
             }
         },
     )
