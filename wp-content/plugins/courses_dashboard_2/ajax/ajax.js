@@ -414,3 +414,39 @@ jQuery(document).on('click', '[data-action="cd__send_program_details_document"]'
 })
 
 /*----------------------------------*/
+
+
+
+/*-------Создание и скачивание excel файла Контроля студентов-------*/
+
+jQuery(document).on('click', '[data-action="cd__send_student_control_details_document"]', function(){
+    const resultBlock = jQuery('.cd__send_program_details_document_result');
+    resultBlock.html(loaderHtml());
+    const full_name          = jQuery(this).parent().find('[name="full_name"]').val();
+    const program_name       = jQuery(this).parent().find('[name="program_name"]').val();
+    const hours              = jQuery(this).parent().find('[name="hours"]').val();
+    const date               = jQuery(this).parent().find('[name="date"]').val();
+    const comission_lead     = jQuery(this).parent().find('[name="comission_lead"]').val();
+    const comission_member_1 = jQuery(this).parent().find('[name="comission_member_1"]').val();
+    const comission_member_2 = jQuery(this).parent().find('[name="comission_member_2"]').val();
+    const reg_number         = jQuery(this).parent().find('[name="reg_number"]').val();
+
+
+    cd__send_student_control_details_document (
+        full_name,
+        program_name,
+        hours,
+        date,
+        comission_lead,
+        comission_member_1,
+        comission_member_2,
+        reg_number
+    ).then((res)=>{
+        setTimeout(function(){
+            resultBlock.html(res);
+        }, 1500);
+
+    });
+})
+
+/*----------------------------------*/

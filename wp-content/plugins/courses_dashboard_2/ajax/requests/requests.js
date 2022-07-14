@@ -87,3 +87,17 @@ function cd__send_program_details_document ( full_name, short_name, program_name
     )
 }
 
+function cd__send_student_control_details_document ( full_name, program_name, hours ) {
+    return jQuery.ajax(
+        {
+            method: 'Post',
+            url: ajaxUrl.url,
+            data: {
+                action: 'cd__send_student_control_details_document',
+                full_name,
+                program_name,
+                hours,
+            }
+        },
+    )
+}

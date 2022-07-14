@@ -147,21 +147,5 @@ function true_save_term_fields( $term_id ) {
 
 
 
-//use PhpOffice\PhpSpreadsheet\Spreadsheet;
-//use PhpOffice\PhpSpreadsheet\IOFactory;
-//
-//$spreadsheet = new Spreadsheet();
-//$sheet = $spreadsheet->getActiveSheet();
-//$sheet->setCellValue('A1', 'Hello World !');
-//
-//
-////set the header first, so the result will be treated as an xlsx file.
-//header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
-//
-////make it an attachment so we can define filename
-//header('Content-Disposition: attachment;filename="result.xlsx"');
-////create IOFactory object
-//$writer = IOFactory::createWriter($spreadsheet, 'Xlsx');
-////save into php output
-//$writer->save('php://output');
+
 

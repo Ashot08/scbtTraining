@@ -391,3 +391,46 @@ function cd__send_program_details_document(){
     wp_die();
 }
 //--------------------------------------------------------------------
+
+
+
+// Создание и скачивание excel файла из Контроля студентов
+//--------------------------------------------------------------------
+add_action('wp_ajax_cd__send_student_control_details_document', 'cd__send_student_control_details_document');
+add_action('wp_ajax_nopriv_cd__send_student_control_details_document', 'cd__send_student_control_details_document');
+function cd__send_student_control_details_document(){
+
+//    $spreadsheet = new \PhpOffice\PhpSpreadsheet\Spreadsheet();
+//    $sheet = $spreadsheet->getActiveSheet();
+//    $sheet->setCellValue('A1', 'Hello World !');
+//
+//
+//    //set the header first, so the result will be treated as an xlsx file.
+//    header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+//    //make it an attachment so we can define filename
+//    header('Content-Disposition: attachment;filename="result.xlsx"');
+//    //create IOFactory object
+//
+//    $writer = \PhpOffice\PhpSpreadsheet\IOFactory::createWriter($spreadsheet, 'Xlsx');
+//    //save into php output
+//    $writer->save(__DIR__ . '/../views/students_control/result.xlsx');
+
+
+    $spreadsheet = \PhpOffice\PhpSpreadsheet\IOFactory::load(__DIR__ . '/../views/students_control/template.xlsx');
+    $worksheet = $spreadsheet->getActiveSheet();
+
+    $worksheet->getCell('C6')->setValue('John');
+    //$worksheet->getCell('A2')->setValue('Smith');
+
+    $writer = \PhpOffice\PhpSpreadsheet\IOFactory::createWriter($spreadsheet, 'Xlsx');
+    $writer->save(__DIR__ . '/../views/students_control/result.xlsx');
+
+    echo ('<a href="/wp-content/plugins/courses_dashboard_2/views/students_control/result.xlsx"> 
+                Скачать файл  
+               <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                    <path fill="currentColor" d="M5,20H19V18H5M19,9H15V3H9V9H5L12,16L19,9Z" />
+                </svg> 
+            </a>');
+    wp_die();
+}
+//--------------------------------------------------------------------

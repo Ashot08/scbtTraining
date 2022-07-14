@@ -18,12 +18,13 @@ class StudentController{
 
     public function actionViewStudentsControlDetails($program_id){
         $model = new Student();
+        $programModel = new Program();
         $model = $model->getStudentsByProgramId($program_id);
-
+        $program_info = $programModel->getProgram($program_id)[0] ?? '';
         if(empty($model)){
             echo 'not_found';
         }else{
-            return students_control_details($model, $program_id);
+            return students_control_details($model, $program_id, $program_info);
         }
 
     }
