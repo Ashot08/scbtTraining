@@ -430,7 +430,14 @@ jQuery(document).on('click', '[data-action="cd__send_student_control_details_doc
     const comission_member_2 = jQuery(this).parent().find('[name="comission_member_2"]').val();
     const reg_number         = jQuery(this).parent().find('[name="reg_number"]').val();
     const date               = jQuery(this).parent().find('[name="date"]').val();
-
+    let   users_ids          = [];
+    jQuery('.cd__table_select_user_checkbox').each(function(){
+        const is_checked = jQuery(this).prop('checked');
+        if(is_checked){
+            users_ids.push(jQuery(this).data('student_id'));
+        }
+    })
+    console.log(users_ids);
     cd__send_student_control_details_document (
         full_name,
         program_name,
@@ -439,7 +446,8 @@ jQuery(document).on('click', '[data-action="cd__send_student_control_details_doc
         comission_lead,
         comission_member_1,
         comission_member_2,
-        reg_number
+        reg_number,
+        users_ids
     ).then((res)=>{
         setTimeout(function(){
             resultBlock.html(res);

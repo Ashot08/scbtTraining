@@ -95,7 +95,8 @@ function cd__send_student_control_details_document (
     comission_lead,
     comission_member_1,
     comission_member_2,
-    reg_number) {
+    reg_number,
+    users_ids) {
     return jQuery.ajax(
         {
             method: 'Post',
@@ -109,7 +110,8 @@ function cd__send_student_control_details_document (
                 comission_lead,
                 comission_member_1,
                 comission_member_2,
-                reg_number
+                reg_number,
+                users_ids
             }
         },
     )

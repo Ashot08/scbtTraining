@@ -407,6 +407,7 @@ function cd__send_student_control_details_document(){
     $comission_member_1 = !$_POST['comission_member_1'] ?  '_______________' : $_POST['comission_member_1'];
     $comission_member_2 = !$_POST['comission_member_2'] ?  '_______________' : $_POST['comission_member_2'];
     $reg_number =         !$_POST['reg_number']         ?  '_______________' : $_POST['reg_number'];
+    $users_ids =          !$_POST['users_ids']           ?  [] : $_POST['users_ids'];
 
 
     $spreadsheet = \PhpOffice\PhpSpreadsheet\IOFactory::load(__DIR__ . '/../views/students_control/template.xlsx');
@@ -419,6 +420,23 @@ function cd__send_student_control_details_document(){
     $worksheet->getCell('D12')->setValue($comission_member_1);
     $worksheet->getCell('D14')->setValue($comission_member_2);
     $worksheet->getCell('B16')->setValue("провела проверку знаний требований охраны труда по программе: \"$program_name\" в объеме $hours часов");
+
+    $users_counter = 1;
+    $start_row = 18;
+    foreach ($users_ids as $id){
+        $user_info = get_userdata($id);
+        $user_name = $user_info->data->display_name;
+        $user_position = get_user_meta($id, 'user_position', true);
+
+        $worksheet->insertNewRowBefore($start_row + $users_counter);
+        $worksheet->getCell('B' . ($start_row + $users_counter))->setValue($users_counter);
+        $worksheet->getCell('C' . ($start_row + $users_counter))->setValue($user_name);
+        $worksheet->getCell('D' . ($start_row + $users_counter))->setValue($user_position);
+        $worksheet->getCell('E' . ($start_row + $users_counter))->setValue($full_name);
+        $worksheet->getCell('F' . ($start_row + $users_counter))->setValue('');
+        $worksheet->getCell('G' . ($start_row + $users_counter))->setValue($reg_number);
+        $users_counter++;
+    }
 
     $writer = \PhpOffice\PhpSpreadsheet\IOFactory::createWriter($spreadsheet, 'Xlsx');
     $writer->save(__DIR__ . '/../views/students_control/result.xlsx');

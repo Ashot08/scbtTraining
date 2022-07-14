@@ -52,7 +52,7 @@ function students_control_details($data, $program_id, $program_info){
 <!--                <td>0%</td>-->
                 <td>
                     <label>
-                        <input data-action="cd__select_item" data-student_id="<?= $user_id; ?>" type="checkbox">
+                        <input class="cd__table_select_user_checkbox" data-action="cd__select_item" data-student_id="<?= $user_id; ?>" type="checkbox">
                     </label>
                 </td>
             </tr>
