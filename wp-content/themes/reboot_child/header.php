@@ -18,7 +18,7 @@
 global $wpshop_core;
 global $class_advertising;
 
-$access = ['5.166.80.24'];
+$access = ['5.166.80.28'];
 $ip =  $_SERVER['REMOTE_ADDR'];
 
 if(!in_array($ip, $access)){

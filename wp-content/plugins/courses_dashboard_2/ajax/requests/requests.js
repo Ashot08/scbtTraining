@@ -116,3 +116,18 @@ function cd__send_student_control_details_document (
         },
     )
 }
+
+
+function cd__student_control_details_download_students_info (users_ids) {
+    return jQuery.ajax(
+        {
+            method: 'Post',
+            url: ajaxUrl.url,
+            data: {
+                action: 'cd__student_control_details_download_students_info',
+                users_ids
+            }
+        },
+    )
+}
+

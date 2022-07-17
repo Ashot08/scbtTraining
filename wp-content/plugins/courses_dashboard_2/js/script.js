@@ -33,8 +33,6 @@ jQuery(document).on('change', '[data-action="cd__table_select_all"]', function (
     const isChecked = jQuery(this).prop('checked');
     table.find('[data-action="cd__select_item"]').prop('checked', isChecked);
     table.find('[data-action="cd__select_item"]').prop('disabled', isChecked);
-
-
 })
 
 

@@ -437,23 +437,56 @@ jQuery(document).on('click', '[data-action="cd__send_student_control_details_doc
             users_ids.push(jQuery(this).data('student_id'));
         }
     })
-    console.log(users_ids);
-    cd__send_student_control_details_document (
-        full_name,
-        program_name,
-        hours,
-        date,
-        comission_lead,
-        comission_member_1,
-        comission_member_2,
-        reg_number,
-        users_ids
-    ).then((res)=>{
-        setTimeout(function(){
-            resultBlock.html(res);
-        }, 1500);
+    if(users_ids.length === 0){
+        resultBlock.html('Выберите студентов, которых нужно выгрузить');
+    }else{
+        cd__send_student_control_details_document (
+            full_name,
+            program_name,
+            hours,
+            date,
+            comission_lead,
+            comission_member_1,
+            comission_member_2,
+            reg_number,
+            users_ids
+        ).then((res)=>{
+            setTimeout(function(){
+                resultBlock.html(res);
+            }, 1500);
 
-    });
+        });
+    }
+})
+
+/*----------------------------------*/
+
+
+
+/*-------Создание и скачивание excel файла Списка студентов -------*/
+
+jQuery(document).on('click', '[data-action="cd__student_control_details_download_students_info"]', function(){
+    const resultBlock = jQuery('.cd__student_control_details_download_students_info_result');
+    resultBlock.html(loaderHtml());
+    let   users_ids          = [];
+    jQuery('.cd__table_select_user_checkbox').each(function(){
+        const is_checked = jQuery(this).prop('checked');
+        if(is_checked){
+            users_ids.push(jQuery(this).data('student_id'));
+        }
+    })
+    if(users_ids.length === 0){
+        resultBlock.html('Выберите студентов, которых нужно выгрузить');
+    }else{
+        cd__student_control_details_download_students_info (
+            users_ids
+        ).then((res)=>{
+            setTimeout(function(){
+                resultBlock.html(res);
+            }, 1500);
+
+        });
+    }
 })
 
 /*----------------------------------*/

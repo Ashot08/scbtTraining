@@ -394,7 +394,7 @@ function cd__send_program_details_document(){
 
 
 
-// Создание и скачивание excel файла из Контроля студентов
+// Создание и скачивание excel файла из Контроля студентов (Протокол)
 //--------------------------------------------------------------------
 add_action('wp_ajax_cd__send_student_control_details_document', 'cd__send_student_control_details_document');
 add_action('wp_ajax_nopriv_cd__send_student_control_details_document', 'cd__send_student_control_details_document');
@@ -436,6 +436,54 @@ function cd__send_student_control_details_document(){
         $worksheet->getCell('F' . ($start_row + $users_counter))->setValue('');
         $worksheet->getCell('G' . ($start_row + $users_counter))->setValue($reg_number);
         $users_counter++;
+    }
+
+    $writer = \PhpOffice\PhpSpreadsheet\IOFactory::createWriter($spreadsheet, 'Xlsx');
+    $writer->save(__DIR__ . '/../views/students_control/result.xlsx');
+
+    echo ('<a href="/wp-content/plugins/courses_dashboard_2/views/students_control/result.xlsx"> 
+                Скачать файл  
+               <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                    <path fill="currentColor" d="M5,20H19V18H5M19,9H15V3H9V9H5L12,16L19,9Z" />
+                </svg> 
+            </a>');
+    wp_die();
+}
+//--------------------------------------------------------------------
+
+
+
+
+// Создание и скачивание excel файла списка студентов из Контроля студентов
+//--------------------------------------------------------------------
+add_action('wp_ajax_cd__student_control_details_download_students_info', 'cd__student_control_details_download_students_info');
+add_action('wp_ajax_nopriv_cd__student_control_details_download_students_info', 'cd__student_control_details_download_students_info');
+function cd__student_control_details_download_students_info(){
+    $users_ids = !$_POST['users_ids'] ? [] : $_POST['users_ids'];
+
+    $spreadsheet = new PhpOffice\PhpSpreadsheet\Spreadsheet();
+    $worksheet = $spreadsheet->getActiveSheet();
+
+    $worksheet->getCell('A1')->setValue('Имя');
+    $worksheet->getCell('B1')->setValue('Должность');
+    $worksheet->getCell('C1')->setValue('Логин');
+    $worksheet->getCell('D1')->setValue('Email');
+    $worksheet->getCell('E1')->setValue('Пароль');
+
+    $users_counter = 1;
+    foreach ($users_ids as $id){
+        $users_counter++;
+        $user_info = get_userdata($id);
+        $user_name = $user_info->data->display_name;
+        $user_login = $user_info->data->user_login;
+        $user_email = $user_info->data->user_email;
+        $user_position = get_user_meta($id, 'user_position', true);
+
+        $worksheet->getCell('A' . ($users_counter))->setValue($user_name);
+        $worksheet->getCell('B' . ($users_counter))->setValue($user_position);
+        $worksheet->getCell('C' . ($users_counter))->setValue($user_login);
+        $worksheet->getCell('D' . ($users_counter))->setValue($user_email);
+        $worksheet->getCell('E' . ($users_counter))->setValue('123');
     }
 
     $writer = \PhpOffice\PhpSpreadsheet\IOFactory::createWriter($spreadsheet, 'Xlsx');
