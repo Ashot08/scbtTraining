@@ -78,7 +78,7 @@ function students_control_details($data, $program_id, $program_info){
                 <input type="text" name="first_name" placeholder="ФИО">
             </label>
             <label for="">
-                <input type="text" name="snils" placeholder="СНИЛС" pattern="\+7\-[0-9]{3}\-[0-9]{3}\-[0-9]{2}\-[0-9]{2}">
+                <input class="cd__snils_input" type="text" name="snils" placeholder="СНИЛС">
             </label>
             <label for="">
                 <input type="email" name="user_email" placeholder="email" required>
@@ -92,8 +92,6 @@ function students_control_details($data, $program_id, $program_info){
             <div class="cd__add_new_student_form_result"></div>
         </div>
     </div>
-
-
 
     <div>
         <button class="cd__hidden_form_toggler">
@@ -145,6 +143,16 @@ function students_control_details($data, $program_id, $program_info){
         </button>
         <div class="cd__student_control_details_download_students_info_result"></div>
     </div>
+
+    <script>
+        /* Inputmask
+        **********************************************/
+        jQuery(document).ready(function(){
+            jQuery(".cd__snils_input").inputmask("999-999-999 99");
+            //jQuery("#example2").inputmask();
+        });
+        /*********************************************/
+    </script>
 <?php
 }
 

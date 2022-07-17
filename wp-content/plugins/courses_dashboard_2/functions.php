@@ -6,9 +6,11 @@ ini_set('display_startup_errors', 1);
 
 
 wp_enqueue_script( 'transist', 'https://cdnjs.cloudflare.com/ajax/libs/jquery.transit/0.9.12/jquery.transit.min.js' , array('jquery'));
-wp_enqueue_script( 'script', plugins_url( '/courses_dashboard_2/js/script.js' ), array('jquery'));
-wp_enqueue_script( 'courses_dashboard_ajax', plugins_url( '/courses_dashboard_2/ajax/ajax.js' ), array('jquery'));
 wp_enqueue_script( 'treeview', plugins_url( '/courses_dashboard_2/libs/treeview/jquery.treeview.js' ), array('jquery'));
+wp_enqueue_script( 'inputmask', plugins_url( '/courses_dashboard_2/libs/inputmask/jquery.inputmask.min.js' ), array('jquery'));
+wp_enqueue_script( 'courses_dashboard_ajax', plugins_url( '/courses_dashboard_2/ajax/ajax.js' ), array('jquery'));
+wp_enqueue_script( 'script', plugins_url( '/courses_dashboard_2/js/script.js' ), array('jquery'));
+
 
 
 wp_enqueue_style('courses_dashboard_css', plugins_url('/courses_dashboard_2/css/style.css'));

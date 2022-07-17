@@ -35,4 +35,3 @@ jQuery(document).on('change', '[data-action="cd__table_select_all"]', function (
     table.find('[data-action="cd__select_item"]').prop('disabled', isChecked);
 })
 
-
