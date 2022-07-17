@@ -1,5 +1,13 @@
 <?php /** @var MBLCategory $category */ ?>
 <?php /** @var MBLPage $mblPage */ ?>
+
+<?php
+
+$term = get_term($category->getTermId());
+
+?>
+
+
 <section class="lesson-row clearfix scbt__single_lesson">
     <div class="col-xs-12">
         <div class="scbt__course_structure_toggle scbt__course_structure_button">
@@ -55,7 +63,10 @@
                         </div>
                     <?php else: ?>
                         <div class="scbt__lesson_header_posts_list_item">
-                            <a href="<?= get_permalink($post_id); ?>">
+
+
+                            <a href="<?php echo '/wpm/' . $term->slug . '/' . $post->post_name; ?>    <?php //echo get_permalink($post_id); ?>">
+
                                 Урок <?= $counter ?><span class="scbt__lesson_header_posts_list_tooltip"><?= $post_title ?></span>
                             </a>
                         </div>

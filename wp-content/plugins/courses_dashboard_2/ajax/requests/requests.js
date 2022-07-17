@@ -50,7 +50,7 @@ function cd__create_program_request (name= '', description= '', action, courses 
 }
 
 
-function cd__add_new_student_form_request ( user_login, first_name, user_email, user_position, program_id ) {
+function cd__add_new_student_form_request ( user_login, first_name, user_email, user_position, user_snils, program_id ) {
     return jQuery.ajax(
         {
             method: 'Post',
@@ -61,6 +61,7 @@ function cd__add_new_student_form_request ( user_login, first_name, user_email, 
                 first_name,
                 user_email,
                 user_position,
+                user_snils,
                 program_id
             }
         },

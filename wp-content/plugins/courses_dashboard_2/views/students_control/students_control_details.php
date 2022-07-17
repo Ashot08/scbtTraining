@@ -25,6 +25,7 @@ function students_control_details($data, $program_id, $program_info){
             <th>Логин</th>
             <th>Email</th>
             <th>Пароль</th>
+            <th>СНИЛС</th>
 <!--            <th>Прогресс</th>-->
             <th>
                 <label class="cd__table_select_all_label">
@@ -41,6 +42,7 @@ function students_control_details($data, $program_id, $program_info){
             $user_name = $user_info->data->display_name;
             $user_login = $user_info->data->user_login;
             $user_email = $user_info->data->user_email;
+            $user_snils = get_user_meta( $user_id, 'user_snils', true );
             $user_pass = '123';
             //$course_category = new MBLCategory(get_term($program_id), true, true);
             ?>
@@ -51,6 +53,7 @@ function students_control_details($data, $program_id, $program_info){
                 <td><?php echo $user_login; ?></td>
                 <td><?php echo $user_email; ?></td>
                 <td><?php echo $user_pass; ?></td>
+                <td><?php echo $user_snils; ?></td>
 <!--                <td>--><?php //echo $course_category->getProgress($user_id); ?><!--%</td>-->
 <!--                <td>0%</td>-->
                 <td>

@@ -188,6 +188,7 @@ function cd__add_new_student(){
         'user_email' => $_POST['user_email'],
         'role'       => 'customer',
         'first_name' => $_POST['first_name'],
+        'user_snils' => $_POST['user_snils'],
         'program_id' => $_POST['program_id']
     ];
 
@@ -201,8 +202,8 @@ function cd__add_new_student(){
         $user_id = wp_insert_user( $userdata );
         if( ! is_wp_error( $user_id ) ){
 
+            update_user_meta($user_id, 'user_snils', $userdata['user_snils']);
           //  update_user_meta($user_id, 'billing_phone', $_POST['billing_phone']);
-
          //   update_user_meta($user_id, 'user_company_name', $_POST['user_company_name']);
          //   update_user_meta($user_id, 'user_inn', $_POST['user_inn']);
             update_user_meta($user_id, 'user_position', $_POST['user_position']);
@@ -469,6 +470,7 @@ function cd__student_control_details_download_students_info(){
     $worksheet->getCell('C1')->setValue('Логин');
     $worksheet->getCell('D1')->setValue('Email');
     $worksheet->getCell('E1')->setValue('Пароль');
+    $worksheet->getCell('F1')->setValue('СНИЛС');
 
     $users_counter = 1;
     foreach ($users_ids as $id){
@@ -478,12 +480,14 @@ function cd__student_control_details_download_students_info(){
         $user_login = $user_info->data->user_login;
         $user_email = $user_info->data->user_email;
         $user_position = get_user_meta($id, 'user_position', true);
+        $user_snils = get_user_meta($id, 'user_snils', true);
 
         $worksheet->getCell('A' . ($users_counter))->setValue($user_name);
         $worksheet->getCell('B' . ($users_counter))->setValue($user_position);
         $worksheet->getCell('C' . ($users_counter))->setValue($user_login);
         $worksheet->getCell('D' . ($users_counter))->setValue($user_email);
         $worksheet->getCell('E' . ($users_counter))->setValue('123');
+        $worksheet->getCell('F' . ($users_counter))->setValue($user_snils);
     }
 
     $writer = \PhpOffice\PhpSpreadsheet\IOFactory::createWriter($spreadsheet, 'Xlsx');

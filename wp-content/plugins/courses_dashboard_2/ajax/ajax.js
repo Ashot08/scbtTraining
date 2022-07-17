@@ -376,12 +376,13 @@ jQuery(document).on('click', '[data-action="cd__send_add_new_student_form"]' , f
     const first_name = jQuery('[name="first_name"]').val();
     const user_email = jQuery('[name="user_email"]').val();
     const user_position = jQuery('[name="user_position"]').val();
+    const user_snils = jQuery('[name="snils"]').val();
     const program_id = jQuery(this).data('program_id');
 
 
 
     if(user_login && user_email){
-        cd__add_new_student_form_request(user_login, first_name, user_email, user_position, program_id).then(res => resultBlock.html(res));
+        cd__add_new_student_form_request(user_login, first_name, user_email, user_position, user_snils, program_id).then(res => resultBlock.html(res));
     }else{
         resultBlock.html('<div class="scbt__notice_error">Заполните все обязательные поля</div>')
     }
