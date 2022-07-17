@@ -303,7 +303,7 @@ function cd__send_program_details_document(){
         $term = get_term( $course, 'wpm-category' );
         $row->addCell(1000, array('borderColor' => '006699'))->addText($counter++);
         $row->addCell(3500, array('borderColor' => '006699'))->addText($term->name);
-        $row->addCell(1500, array('borderColor' => '006699'))->addText('');
+        $row->addCell(1500, array('borderColor' => '006699'))->addText( get_term_meta( $term->term_id, 'cd__course_input_hours', true ) );
         $row->addCell(1500, array('borderColor' => '006699'))->addText('');
         $row->addCell(1500, array('borderColor' => '006699'))->addText('');
     }

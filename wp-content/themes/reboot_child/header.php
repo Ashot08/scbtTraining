@@ -88,15 +88,17 @@ if(!in_array($ip, $access)){
 
         <?php
 
-//        $user_info = get_userdata(get_current_user_id());
-//        $is_company = false;
-//        if(is_user_logged_in() && isset($user_info->caps["customer_company"])){
-//            $is_company = true;
-//        }
 
 
         //$lesson_id = get_queried_object()->ID;
         $lesson_term_id = $category;
+
+        $user_info = get_userdata(get_current_user_id());
+        $is_company = false;
+        if (is_user_logged_in() && isset($user_info->caps["customer_company"])) {
+            $is_company = true;
+        }
+
         if($lesson_term_id){
             $term_id = null;
             if($lesson_term_id){
@@ -107,44 +109,52 @@ if(!in_array($ip, $access)){
                 $term_id = $parent_id;
             }
 
-//            $args = array(
-//                'child_of'           => $term_id,
-//                'title_li'           => '',
-//                'taxonomy'           => 'wpm-category',
-//                'current_category'   => $lesson_term_id
-//            );
-
             $parent_name = get_term($term_id)->name;
 
-//            echo '<h3>';
-//            echo $parent_name;
-//            echo '</h3>';
-//
-//            echo '<ul>';
-//            wp_list_categories( $args );
-//            echo '</ul>';
-
-
-        //echo get_post_type(get_queried_object()->id);
 
             $model = new \Models\Program();
             $courseModel = new \Models\Course();
 
-//            if(!$is_company){
-//                $programs_enrolled = $model->getProgramsByStudentId(get_current_user_id());
-//            }else{
-//                $programs_enrolled = $model->getProgramsByDirectorId(get_current_user_id());
-//            }
-            $programs_enrolled = $model->getProgramsByStudentId(get_current_user_id());
             $courses_enrolled = [];
-            foreach ($programs_enrolled as $program) {
-                $program_courses = $courseModel->getCoursesByProgramId($program->program_id);
-                if(is_array($program_courses)){
-                    foreach ($program_courses as $course){
-                        $courses_enrolled[] = $course->course_id;
+            if($is_company){
+                $programs_enrolled = $model->getProgramsByDirectorId(get_current_user_id());
+                foreach ($programs_enrolled as $program) {
+                    $program_courses = $courseModel->getCoursesByProgramId($program->id);
+                    if(is_array($program_courses)){
+                        foreach ($program_courses as $course){
+                            $courses_enrolled[] = $course->course_id;
+                        }
+                    }
+                }
+            }else{
+                $programs_enrolled = $model->getProgramsByStudentId(get_current_user_id());
+                foreach ($programs_enrolled as $program) {
+                    $program_courses = $courseModel->getCoursesByProgramId($program->program_id);
+                    if(is_array($program_courses)){
+                        foreach ($program_courses as $course){
+                            $courses_enrolled[] = $course->course_id;
+                        }
                     }
                 }
             }
+
+
+            $current_cat_id = get_queried_object()->term_id;
+            if(!$current_cat_id){
+                $post_terms = wp_get_post_terms( get_queried_object()->ID, 'wpm-category');
+                $current_cat_children = get_term_children( $category, 'wpm-category' );
+                $current_cat_children = $current_cat_children ? $current_cat_children : [];
+                if(!$current_cat_children){
+                    $current_cat_children[] = $category;
+                }
+                foreach ($post_terms as $term){
+                    if( in_array($term->term_id, $current_cat_children) ){
+                        $current_cat_id = $term->term_id;
+                    }
+                }
+            }
+
+
             $args = [
                 'taxonomy'      => [ 'wpm-category' ], // название таксономии с WP 4.5
     //            'orderby'       => 'id',
@@ -164,12 +174,7 @@ if(!in_array($ip, $access)){
         echo '<h3>';
         echo $parent_name;
         echo '</h3>';
-
-        echo '<pre>';
-        print_r($programs_enrolled);
-        echo '</pre>';
-
-        renderCourseStructure($categoryHierarchy, $courses_enrolled, $category);
+        renderCourseStructure($categoryHierarchy, $courses_enrolled, $current_cat_id);
     ?>
 
 
@@ -186,6 +191,7 @@ if(!in_array($ip, $access)){
                     $is_current = $term->term_id === $current_cat_id;
                     $has_children = $term->children;
                     ?>
+                
                     <li class="<?php echo $is_open ? 'cd__list_item_open' : 'cd__list_item_not_open'; ?>
                        <?php echo $has_children ? 'cd__list_has_children' : 'cd__list_has_not_children';?>
                        <?php echo $is_current ? 'cd__list_current_cat' : '';?>
@@ -210,7 +216,7 @@ if(!in_array($ip, $access)){
 
                         <?php endif; ?>
                         <?php if($has_children): ?>
-                            <?php renderProgramDetails($term->children, $terms_ids) ?>
+                            <?php renderCourseStructure($term->children, $terms_ids, $current_cat_id) ?>
                         <?php endif; ?>
                     </li>
                 <?php endforeach;?>

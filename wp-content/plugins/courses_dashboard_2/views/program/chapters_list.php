@@ -46,17 +46,21 @@ function chapters_list($data){
                 <?php foreach ($terms as $term): ?>
                     <?php
                     $checkbox_status = get_term_meta( $term->term_id, 'cd__course_input_status', true );
+                    $checkbox_classes = '';
                     if($checkbox_status === '2'){
                         $checkbox_status = 'checked disabled';
                     }elseif($checkbox_status === '3'){
                         $checkbox_status = 'disabled';
+                    }elseif($checkbox_status === '4'){
+                        $checkbox_classes .= 'cd__checkbox_status_4';
+//                        $checkbox_status = 'disabled';
                     }else{
                         $checkbox_status = '';
                     }
                     ?>
                     <li data-chapter_id="<?= $term->term_id; ?>" class="cd__chapters_list_item">
                         <label class="cd__chapters_list_item_label">
-                            <input class="cd__chapters_list_item_input" type="checkbox" <?= $checkbox_status ?>
+                            <input class="cd__chapters_list_item_input <?= $checkbox_classes; ?>" type="checkbox" <?= $checkbox_status ?>
                                    data-chapter_id="<?= $term->term_id; ?>"
                                    data-parent_id="<?= $parent; ?>"
                                    data-root_course_id="<?= $root_course_id ?>">

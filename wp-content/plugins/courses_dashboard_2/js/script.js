@@ -33,5 +33,27 @@ jQuery(document).on('change', '[data-action="cd__table_select_all"]', function (
     const isChecked = jQuery(this).prop('checked');
     table.find('[data-action="cd__select_item"]').prop('checked', isChecked);
     table.find('[data-action="cd__select_item"]').prop('disabled', isChecked);
-})
+});
+jQuery(document).on('change', '.cd__chapters_list_item_input ', function (){
+    const neighbours = jQuery(this).closest('.cd__chapters_list_items').find('.cd__chapters_list_item_input');
+    //if(jQuery(this).hasClass('cd__checkbox_status_4')) return;
+    let checkboxStatus = false;
+    neighbours.each(function(){
+        if(!jQuery(this).hasClass('cd__checkbox_status_4') && jQuery(this).prop('checked')){
+            checkboxStatus = true;
+        }
+    })
+
+    if(checkboxStatus){
+        jQuery(this).closest('.cd__chapters_list_items').find('.cd__checkbox_status_4').prop('checked', checkboxStatus);
+    }else if(jQuery(this).hasClass('cd__checkbox_status_4')){
+        if(!jQuery(this).prop('checked')){
+            jQuery(this).closest('.cd__chapters_list_items').find('.cd__checkbox_status_4').prop('checked', false);
+        }else{
+            jQuery(this).closest('.cd__chapters_list_items').find('.cd__checkbox_status_4').prop('checked', true);
+        }
+    }
+});
+
+
 

@@ -1,8 +1,8 @@
 <?php
 
-ini_set('error_reporting', E_ALL);
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
+//ini_set('error_reporting', E_ALL);
+//ini_set('display_errors', 1);
+//ini_set('display_startup_errors', 1);
 
 
 wp_enqueue_script( 'transist', 'https://cdnjs.cloudflare.com/ajax/libs/jquery.transit/0.9.12/jquery.transit.min.js' , array('jquery'));
@@ -64,15 +64,20 @@ function true_add_cat_fields( $taxonomy ) {
     </h4>    
     <input type="radio" checked id="cd__course_input_status_1"
      name="cd__course_input_status" value="1">
-    <label for="cd__course_input_status_1">Стандартное поведение</label>
+    <label for="cd__course_input_status_1">Стандартное поведение</label><br>
 
     <input type="radio" id="cd__course_input_status_2"
      name="cd__course_input_status" value="2">
-    <label for="cd__course_input_status_2">Всегда выбран</label>
+    <label for="cd__course_input_status_2">Всегда выбран</label><br>
 
     <input type="radio" id="cd__course_input_status_3"
      name="cd__course_input_status" value="3">
-    <label for="cd__course_input_status_3">Нет возможности выбирать (наследует от родителя)</label></div>';
+    <label for="cd__course_input_status_3">Нет возможности выбирать (наследует от родителя)</label><br>
+    
+    <input type="radio" id="cd__course_input_status_4"
+     name="cd__course_input_status" value="4">
+    <label for="cd__course_input_status_4">Выбран, если выбран хотя бы один из соседних</label><br></div>';
+
 
     echo '<div style="padding: 10px;background-color: #fff;border: 1px solid #d2f3f4;margin: 20px 0;">
     <h4>
@@ -94,9 +99,11 @@ function true_edit_term_fields( $term, $taxonomy ) {
     $cd__course_input_status_1 = '';
     $cd__course_input_status_2 = '';
     $cd__course_input_status_3 = '';
+    $cd__course_input_status_4 = '';
     if($cd__course_input_status === '1') $cd__course_input_status_1 = 'checked';
     if($cd__course_input_status === '2') $cd__course_input_status_2 = 'checked';
     if($cd__course_input_status === '3') $cd__course_input_status_3 = 'checked';
+    if($cd__course_input_status === '4') $cd__course_input_status_4 = 'checked';
 
     $cd__course_input_hours = get_term_meta( $term->term_id, 'cd__course_input_hours', true );
 
@@ -106,15 +113,19 @@ function true_edit_term_fields( $term, $taxonomy ) {
     </h4>    
     <input type="radio" ' . $cd__course_input_status_1 . ' id="cd__course_input_status_1"
      name="cd__course_input_status" value="1">
-    <label for="cd__course_input_status_1">Стандартное поведение</label>
+    <label for="cd__course_input_status_1">Стандартное поведение</label><br>
 
     <input type="radio" ' . $cd__course_input_status_2 . ' id="cd__course_input_status_2"
      name="cd__course_input_status" value="2">
-    <label for="cd__course_input_status_2">Всегда выбран</label>
+    <label for="cd__course_input_status_2">Всегда выбран</label><br>
 
     <input type="radio" ' . $cd__course_input_status_3 . ' id="cd__course_input_status_3"
      name="cd__course_input_status" value="3">
-    <label for="cd__course_input_status_3">Нет возможности выбирать (наследует от родителя)</label></div>';
+    <label for="cd__course_input_status_3">Нет возможности выбирать (наследует от родителя)</label><br>
+    
+    <input type="radio" ' . $cd__course_input_status_4 . ' id="cd__course_input_status_4"
+     name="cd__course_input_status" value="4">
+    <label for="cd__course_input_status_4">Выбран, если выбран хотя бы один из соседних</label><br></div>';
 
 
     echo '<div style="padding: 10px;background-color: #fff;border: 1px solid #d2f3f4;margin: 20px 0;">

@@ -242,7 +242,7 @@ jQuery(document).on('click', '.cd_program .cd__programs_item', function(){
 
     cd__content_request (program_id, 'cd__get_program_details' ).then((res) => {
         if(res){
-            result_block.html(`<div class="success">Программа <span>"${title}"</span> состоит из следующих курсов: </div>`);
+            result_block.html(`<div class="success">Программа <span>"${title}"</span> включает следующие разделы и темы: </div>`);
             result_block.append(res);
             jQuery('html, body').animate({ scrollTop: result_block.offset().top }, 'slow');
         }else{

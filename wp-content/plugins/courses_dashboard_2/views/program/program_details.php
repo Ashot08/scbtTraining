@@ -114,6 +114,9 @@ function program_details($data, $program_id, $program_info){
                     <input type="text" name="first_name" placeholder="ФИО">
                 </label>
                 <label for="">
+                    <input class="cd__snils_input" type="text" name="snils" placeholder="СНИЛС">
+                </label>
+                <label for="">
                     <input type="email" name="user_email" placeholder="email" required>
                 </label>
                 <label for="">
@@ -125,7 +128,15 @@ function program_details($data, $program_id, $program_info){
                 <div class="cd__add_new_student_form_result"></div>
             </div>
         </div>
-
+            <script>
+                /* Inputmask
+                **********************************************/
+                jQuery(document).ready(function () {
+                    jQuery(".cd__snils_input").inputmask("999-999-999 99");
+                    //jQuery("#example2").inputmask();
+                });
+                /*********************************************/
+            </script>
 
 
         <div>
