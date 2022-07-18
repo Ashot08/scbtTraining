@@ -18,16 +18,16 @@
 global $wpshop_core;
 global $class_advertising;
 
-$access = ['5.166.80.28'];
-$ip =  $_SERVER['REMOTE_ADDR'];
-
-if(!in_array($ip, $access)){
-   echo '<pre>';
-   print_r($ip);
-   print_r(' На сайте ведутся работы, зайдите позже');
-   echo '</pre>';
-   wp_die();
-}
+//$access = ['5.166.80.28'];
+//$ip =  $_SERVER['REMOTE_ADDR'];
+//
+//if(!in_array($ip, $access)){
+//   echo '<pre>';
+//   print_r($ip);
+//   print_r(' На сайте ведутся работы, зайдите позже');
+//   echo '</pre>';
+//   wp_die();
+//}
 
 
 
@@ -191,7 +191,7 @@ if(!in_array($ip, $access)){
                     $is_current = $term->term_id === $current_cat_id;
                     $has_children = $term->children;
                     ?>
-                
+
                     <li class="<?php echo $is_open ? 'cd__list_item_open' : 'cd__list_item_not_open'; ?>
                        <?php echo $has_children ? 'cd__list_has_children' : 'cd__list_has_not_children';?>
                        <?php echo $is_current ? 'cd__list_current_cat' : '';?>

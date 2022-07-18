@@ -35,17 +35,20 @@ jQuery(document).on('change', '[data-action="cd__table_select_all"]', function (
     table.find('[data-action="cd__select_item"]').prop('disabled', isChecked);
 });
 jQuery(document).on('change', '.cd__chapters_list_item_input ', function (){
-    const neighbours = jQuery(this).closest('.cd__chapters_list_items').find('.cd__chapters_list_item_input');
-    //if(jQuery(this).hasClass('cd__checkbox_status_4')) return;
+    const parentId = jQuery(this).data('parent_id');
+
+
+    const neighbours = jQuery(`[data-parent_id="${parentId}"]`);
     let checkboxStatus = false;
     neighbours.each(function(){
-        if(!jQuery(this).hasClass('cd__checkbox_status_4') && jQuery(this).prop('checked')){
+        if(!jQuery(this).hasClass('cd__checkbox_status_4') &&
+            jQuery(this).prop('checked')){
             checkboxStatus = true;
         }
     })
 
     if(checkboxStatus){
-        jQuery(this).closest('.cd__chapters_list_items').find('.cd__checkbox_status_4').prop('checked', checkboxStatus);
+        jQuery(`[data-parent_id="${parentId}"].cd__checkbox_status_4`).prop('checked', true);
     }else if(jQuery(this).hasClass('cd__checkbox_status_4')){
         if(!jQuery(this).prop('checked')){
             jQuery(this).closest('.cd__chapters_list_items').find('.cd__checkbox_status_4').prop('checked', false);
