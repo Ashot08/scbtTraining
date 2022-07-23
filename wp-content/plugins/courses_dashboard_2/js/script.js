@@ -4,6 +4,11 @@ jQuery(document).ready(function(){
     })
 })
 
+
+
+/* Копировать код в буфер обмена
+**************************************************************************/
+
 jQuery(document).ready(function(){
     jQuery(document).on('click', '[data-action="cd__copy_key_to_clipboard"]', function(){
         const resultBlock = jQuery(this).parent().find('.cd__key_copy_result');
@@ -22,6 +27,10 @@ jQuery(document).ready(function(){
     })
 })
 
+/***********************************************************************/
+
+
+
 jQuery(document).on('click', '[data-action="toggle__add_new_student_form"]', function (){
     jQuery('.cd__add_new_student_form').slideToggle();
 })
@@ -34,6 +43,7 @@ jQuery(document).on('change', '[data-action="cd__table_select_all"]', function (
     table.find('[data-action="cd__select_item"]').prop('checked', isChecked);
     table.find('[data-action="cd__select_item"]').prop('disabled', isChecked);
 });
+
 jQuery(document).on('change', '.cd__chapters_list_item_input ', function (){
     const parentId = jQuery(this).data('parent_id');
 
@@ -59,4 +69,33 @@ jQuery(document).on('change', '.cd__chapters_list_item_input ', function (){
 });
 
 
+/* Табы форм регистрации и входа в аккаунт
+************************************************************************/
 
+jQuery(document).on('click', '.scbt__account_tabs', function (e){
+    const target = jQuery(e.target);
+    if(target.hasClass('scbt__account_tab')){
+        const index = target.index();
+
+        jQuery('.scbt__account_form').removeClass('active');
+        jQuery('.scbt__account_tab').removeClass('active');
+
+        target.addClass('active');
+        jQuery('.scbt__account_form').eq(index).addClass('active');
+    }
+})
+
+/***********************************************************************/
+
+
+
+/* Маска для логина пользователя (только латинские символы и числа)
+************************************************************************/
+
+jQuery(document).ready(function(){
+    jQuery(".cd__user_login_input").inputmask({ regex: "^[A-Za-z0-9]+$" });
+    //jQuery("#example2").inputmask();
+});
+
+/*
+************************************************************************/

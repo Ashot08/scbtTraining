@@ -60,9 +60,85 @@ get_header();
             </div>
 
         <?php else: ?>
-            <?php wp_login_form(); ?>
-            <?php echo do_shortcode('[woocommerce_my_account]'); ?>
+            <div class="scbt__account_tabs">
 
+                <div class="scbt__account_tabs_nav">
+                    <div class="scbt__account_tab active">Войти</div>
+                    <div class="scbt__account_tab">Зарегистрироваться</div>
+                </div>
+                <div class="scbt__account_forms_content">
+                    <div class="scbt__account_form active">
+                        <?php wp_login_form(); ?>
+                    </div>
+                    <div class="scbt__account_form">
+                        <form class="scbt__register_form" action="" method="post" enctype="multipart/form-data">
+                            <div>
+                                <input class="user_name cd__user_login_input" required type="text" placeholder="Логин"
+                                       value="" name="user_login" id="login-user">
+                            </div>
+                            <div>
+                                <input class="first_name" required type="text" placeholder="Фамилия Имя Отчество"
+                                       value="" name="first_name" id="first_name">
+                            </div>
+                            <div>
+                                <input class="billing_phone" required type="text" placeholder="Телефон"
+                                       value="" name="billing_phone" id="billing_phone">
+                            </div>
+                            <div>
+                                <input class="user_email" required type="email" placeholder="E-mail"
+                                       value="" name="user_email" id="email-user">
+                            </div>
+                            <div>
+                                <input class="user_position" required type="text" placeholder="Должность"
+                                       value="" name="user_position" id="user_position">
+                            </div>
+                            <div class="form_extend">
+                                <div>
+                                    <input class="user_password" placeholder="Пароль" required="" id="primary-pass-user" type="password" name="user_pass">
+                                </div>
+
+                                <div class="scbt_diler_register_fields">
+                                    <div>
+                                        <input class="user_company_name" required type="text" placeholder="Наименование компании"
+                                               value="" name="user_company_name" id="user_company_name">
+                                    </div>
+                                    <div>
+                                        <input class="user_inn" required type="text" placeholder="ИНН"
+                                               value="" name="user_inn" id="user_inn">
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <label>
+                                        <span>Аккаунт</span>
+                                        <span class="colon">:</span>
+                                    </label>
+                                    <div>
+                                        <select name="user_role" id="user_role" class="user_role">
+                                            <option value="customer" selected>Физическое лицо</option>
+                                            <option value="customer_company">Юридическое лицо</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <label class="scbt__checkbox active" for="scbt__checkbox_accept">
+                                    <div class="scbt__checkbox_square" >
+                                        <span>✓</span>
+                                    </div>
+                                    Нажимая кнопку "Зарегистрироваться" я даю свое согласие на обработку песональной информации в соответствии с Политикой конфиденциальности
+                                </label>
+                                <input id="scbt__checkbox_accept" type="checkbox" name="accept" checked>
+                            </div>
+                            <div class="form-block-rcl scbt__submit_register_wrapper">
+                                <button class="scbt__submit">Зарегистрироваться</button>
+                            </div>
+                            <div class="form-block-rcl scbt__register_result">
+
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
         <?php endif; ?>
     </div>
 </div>

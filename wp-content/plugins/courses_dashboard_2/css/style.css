@@ -60,13 +60,15 @@
     max-width: 1200px;
     margin: 0 auto;
 }
-.cd__tabs_nav{
+.cd__tabs_nav,
+.scbt__account_tabs_nav{
     margin-left: 0;
     padding-left: 0;
     list-style: none;
     display: flex;
 }
-.cd__tabs_nav_item{
+.cd__tabs_nav_item,
+.scbt__account_tab{
     cursor: pointer;
     border: 1px solid rgba(0,0,0,0.1);
     margin: 0;
@@ -75,7 +77,8 @@
     background-color: #c50000;
     color: #fff;
 }
-.cd__tabs_nav_item.active{
+.cd__tabs_nav_item.active,
+.scbt__account_tab.active{
     background-color: #63666A;
 }
 .cd__tabs_nav_item:last-child{
@@ -330,6 +333,23 @@
     padding: 20px 0;
     position: relative;
 }
+
+.scbt__account_tabs_nav{
+    margin-bottom: 20px;
+}
+.scbt__account_tab{
+
+}
+.scbt__account_form{
+    display: none;
+}
+.scbt__account_form.active{
+    display: block;
+}
+
+
+
+
 /*.cd__chapters_list_level_1, .cd__chapters_list_level_1 ul, .cd__chapters_list_level_1 li {*/
 /*    margin: 0; padding: 0; line-height: 1.2; list-style: none;*/
 /*}*/

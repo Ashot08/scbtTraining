@@ -86,7 +86,7 @@ input[type="text"], input[type="password"], input[type="email"], input[type="url
 }
 .scbt__checkbox {
     font-size: 12px;
-    text-align: center;
+    text-align: left;
     margin-top: 20px;
     display: block;
 }
@@ -130,7 +130,8 @@ input[type="text"], input[type="password"], input[type="email"], input[type="url
     cursor: pointer;
 }
 .scbt__submit_register_wrapper {
-    text-align: center;
+    text-align: left;
+    margin-bottom: 20px;
 }
 .scbt__notice_error, .scbt__notice_success {
     padding: 20px;
