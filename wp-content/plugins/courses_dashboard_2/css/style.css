@@ -42,9 +42,13 @@
 .cd__hidden_form_box{
     display: none;
 }
-
-
-
+.cd__breadcrumb_closed{
+    opacity: 0.8;
+    cursor: not-allowed;
+}
+.cd__breadcrumb_closed:hover{
+    opacity: 0.5;
+}
 
 
 

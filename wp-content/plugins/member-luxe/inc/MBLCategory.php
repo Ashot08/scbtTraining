@@ -378,6 +378,7 @@ class MBLCategory implements MBLPaginationInterface, MBLMetaInterface
         foreach ($ancestors as $ancestor) {
             $term = new MBLCategory(get_term($ancestor));
             array_unshift($breadcrumbs, array(
+                'id'   => $term->getTermId(),
                 'name' => $term->getName(),
                 'link' => $term->getLink(),
                 'icon' => 'folder-open-o'
@@ -385,6 +386,7 @@ class MBLCategory implements MBLPaginationInterface, MBLMetaInterface
         }
 
         $breadcrumbs[] = array(
+            'id'   => $this->getTermId(),
             'name' => $this->getName(),
             'link' => $this->getLink(),
             'icon' => 'folder-open-o'

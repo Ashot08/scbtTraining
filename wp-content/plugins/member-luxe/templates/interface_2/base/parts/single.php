@@ -33,7 +33,7 @@ $term = get_term($category->getTermId());
                             'terms'=>$category->getTermId()
                         )
                     ),
-                    'orderby'     => 'date',
+                    'orderby'     => 'menu_order',
                     'order'       => 'ASC',
                     'include'     => array(),
                     'exclude'     => array(),
