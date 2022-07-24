@@ -89,13 +89,15 @@ jQuery(document).on('click', '.scbt__account_tabs', function (e){
 
 
 
-/* Маска для логина пользователя (только латинские символы и числа)
+/* Маски inputmask
 ************************************************************************/
 
 jQuery(document).ready(function(){
     jQuery(".cd__user_login_input").inputmask({ regex: "^[A-Za-z0-9]+$" });
-    //jQuery("#example2").inputmask();
+    jQuery(".cd__reg_form_snils_input").inputmask("999-999-999 99");
 });
+
+
 
 /*
 ************************************************************************/

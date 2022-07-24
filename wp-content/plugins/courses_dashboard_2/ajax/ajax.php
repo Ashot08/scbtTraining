@@ -237,6 +237,67 @@ function cd__add_new_student(){
 
 
 
+//Обновление полей профиля
+//--------------------------------------------------------------------
+
+add_action('wp_ajax_cd__update_profile', 'cd__update_profile');
+add_action('wp_ajax_nopriv_cd__update_profile', 'cd__update_profile');
+function cd__update_profile() {
+    function isValidEmail($email) {
+        return filter_var($email, FILTER_VALIDATE_EMAIL)
+            && preg_match('/@.+\./', $email);
+    }
+
+    $user_id = get_current_user_id();
+    $userdata = [
+        'ID'       => $user_id,
+    ];
+    $first_name         = $_POST[ 'first_name' ] ?? null;
+    $user_email         = $_POST[ 'user_email' ] ?? null;
+    $billing_phone         = $_POST[ 'billing_phone' ] ?? null;
+
+    $user_position      = $_POST[ 'user_position' ] ?? null;
+    $user_snils         = $_POST[ 'user_snils' ] ?? null;
+    $user_inn           = $_POST[ 'user_inn' ] ?? null;
+    $user_company_name  = $_POST[ 'user_company_name' ] ?? null;
+
+
+    if($first_name)        $userdata['first_name'] = $first_name;
+    if($user_email)        $userdata['user_email'] = $user_email;
+
+
+
+    $is_valid_email = isValidEmail($user_email);
+
+    if($is_valid_email){
+        wp_update_user( $userdata );
+
+        if ( is_wp_error( $user_id ) ) {
+            // Произошла ошибка, возможно такого пользователя не существует.
+            echo '<div class="scbt__notice_error">Произошла ошибка</div>';
+        }
+        else {
+            // Все ОК!
+            if($user_position) update_user_meta($user_id, 'user_position', $user_position);
+            if($user_snils) update_user_meta($user_id, 'user_snils', $user_snils);
+            if($user_inn) update_user_meta($user_id, 'user_inn', $user_inn);
+            if($user_company_name) update_user_meta($user_id, 'user_company_name', $user_company_name);
+            if($billing_phone) update_user_meta($user_id, 'billing_phone', $billing_phone);
+
+            echo '<div class="scbt__notice_success">Данные успешно обновлены </div>';
+        }
+    }else{
+        echo '<div class="scbt__notice_error">Поле E-mail заполнено некорректно.</div>';
+    }
+
+
+    wp_die();
+
+}
+
+//--------------------------------------------------------------------
+
+
 
 // Создание и скачивание docx файла Учебной программы
 //--------------------------------------------------------------------

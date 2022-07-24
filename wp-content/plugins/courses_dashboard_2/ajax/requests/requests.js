@@ -69,6 +69,26 @@ function cd__add_new_student_form_request ( user_login, first_name, user_email, 
 }
 
 
+function cd__update_profile ( first_name, user_email, user_position, user_snils, user_inn, user_company_name, billing_phone ) {
+    return jQuery.ajax(
+        {
+            method: 'Post',
+            url: ajaxUrl.url,
+            data: {
+                action: 'cd__update_profile',
+                first_name,
+                user_email,
+                user_position,
+                user_snils,
+                user_inn,
+                user_company_name,
+                billing_phone
+            }
+        },
+    )
+}
+
+
 function cd__send_program_details_document ( full_name, short_name, program_name, hours, director_post, director_name, courses ) {
     return jQuery.ajax(
         {

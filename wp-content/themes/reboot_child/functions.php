@@ -58,6 +58,7 @@ function new_user_registration(){
         'user_email' => $_POST['userEmail'],
         'role'       => $_POST['userRole'],
         'first_name' => $_POST['first_name'],
+        'user_snils' => $_POST['user_snils'],
     ];
 
     /**
@@ -78,6 +79,7 @@ function new_user_registration(){
             update_user_meta($user_id, 'user_company_name', $_POST['user_company_name']);
             update_user_meta($user_id, 'user_inn', $_POST['user_inn']);
             update_user_meta($user_id, 'user_position', $_POST['user_position']);
+            update_user_meta($user_id, 'user_snils', $userdata['user_snils']);
 
             $creds = array();
             $creds['user_login'] = $userdata['user_login'];

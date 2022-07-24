@@ -35,6 +35,33 @@ dynamicallyLoadScript('/wp-content/plugins/courses_dashboard_2/ajax/tabsRouting/
 
 
 
+/*----------Update Profile----------*/
+jQuery(document).on('click','[data-action="cd__update_profile"]', function(){
+    const resultBlock = jQuery('.cd__update_profile_result');
+    resultBlock.html(loaderHtml());
+
+    const first_name = jQuery('[name="first_name"]').val();
+    const user_email = jQuery('[name="user_email"]').val();
+    const user_position = jQuery('[name="user_position"]').val();
+    const user_snils = jQuery('[name="user_snils"]').val();
+    const user_inn = jQuery('[name="user_inn"]').val();
+    const user_company_name = jQuery('[name="user_company_name"]').val();
+    const billing_phone = jQuery('[name="billing_phone"]').val();
+
+    cd__update_profile (
+        first_name,
+        user_email,
+        user_position,
+        user_snils,
+        user_inn,
+        user_company_name,
+        billing_phone
+    ).then(res=>resultBlock.html(res));
+})
+/*--------------------------------*/
+
+
+
 /*--------Create Program----------*/
 
 jQuery(document).ready(function(){
@@ -44,6 +71,8 @@ jQuery(document).ready(function(){
         cd__content_request (1, 'cd__get_create_program_view' ).then(res=>resultBlock.html(res));
     })
 })
+
+
 
 jQuery(document).on('click', '.cd__step_toggler', function(){
     jQuery('.cd__step').slideToggle();

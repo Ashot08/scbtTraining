@@ -57,8 +57,9 @@ function chapters_list($data){
                     }else{
                         $checkbox_status = '';
                     }
+                    $is_open = get_term_meta( $term->term_id, 'cd__course_input_open_list', true );
                     ?>
-                    <li data-chapter_id="<?= $term->term_id; ?>" class="cd__chapters_list_item">
+                    <li data-chapter_id="<?= $term->term_id; ?>" class="cd__chapters_list_item <?php echo $is_open ? 'open' : ''; ?>">
                         <label class="cd__chapters_list_item_label">
                             <input class="cd__chapters_list_item_input <?= $checkbox_classes; ?>" type="checkbox" <?= $checkbox_status ?>
                                    data-chapter_id="<?= $term->term_id; ?>"

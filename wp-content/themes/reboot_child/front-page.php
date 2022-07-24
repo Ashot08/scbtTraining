@@ -1,3 +1,7 @@
+<script>
+document.location.href = '/account'
+</script>
+
 <?php
 
 

@@ -87,6 +87,16 @@ function true_add_cat_fields( $taxonomy ) {
      name="cd__course_input_hours" >
     <label for="cd__course_input_hours">Сколько времени требуется для прохождения курса</label>
     </div>';
+
+
+    echo '<div style="padding: 10px;background-color: #fff;border: 1px solid #d2f3f4;margin: 20px 0;">
+    <h4>
+        Развернут в списке:
+    </h4>    
+    <input type="checkbox" id="cd__course_input_open_list"
+     name="cd__course_input_open_list" >
+    <label for="cd__course_input_open_list">(представлен в развёрнутом виде в списке курсов при создании программы)</label>
+    </div>';
 }
 
 add_action( 'wpm-category_edit_form_fields', 'true_edit_term_fields', 10, 2 );
@@ -106,6 +116,8 @@ function true_edit_term_fields( $term, $taxonomy ) {
     if($cd__course_input_status === '4') $cd__course_input_status_4 = 'checked';
 
     $cd__course_input_hours = get_term_meta( $term->term_id, 'cd__course_input_hours', true );
+    $cd__course_input_open_list = get_term_meta( $term->term_id, 'cd__course_input_open_list', true );
+    if($cd__course_input_open_list) $cd__course_input_open_list = 'checked';
 
     echo '<div style="padding: 10px;background-color: #fff;border: 1px solid #d2f3f4;">
     <h4>
@@ -135,6 +147,19 @@ function true_edit_term_fields( $term, $taxonomy ) {
     <input type="number" checked id="cd__course" value="' .  $cd__course_input_hours . '" name="cd__course_input_hours">
     <label for="cd__course_input_hours">Сколько времени требуется для прохождения курса</label>
     </div>';
+
+    echo '<div style="padding: 10px;background-color: #fff;border: 1px solid #d2f3f4;margin: 20px 0;">
+    <h4>
+        Развернут в списке:
+    </h4>    
+    <input 
+      type="checkbox"     
+      id="cd__course_input_open_list"
+      name="cd__course_input_open_list" 
+      ' . $cd__course_input_open_list . '
+      >
+    <label for="cd__course_input_open_list">(представлен в развёрнутом виде в списке курсов при создании программы)</label>
+    </div>';
 }
 
 add_action( 'created_wpm-category', 'true_save_term_fields' );
@@ -153,8 +178,21 @@ function true_save_term_fields( $term_id ) {
     } else {
         delete_term_meta( $term_id, 'cd__course_input_hours' );
     }
+
+    if( isset( $_POST[ 'cd__course_input_open_list' ] ) ) {
+        update_term_meta( $term_id, 'cd__course_input_open_list', $_POST[ 'cd__course_input_open_list' ] );
+    } else {
+        delete_term_meta( $term_id, 'cd__course_input_open_list' );
+    }
 }
 
+
+//--------------------------------------------------------------------
+
+
+
+// Дополнительные поля профиля
+//--------------------------------------------------------------------
 
 //--------------------------------------------------------------------
 

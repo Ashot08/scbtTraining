@@ -92,6 +92,11 @@ get_header();
                                 <input class="user_position" required type="text" placeholder="Должность"
                                        value="" name="user_position" id="user_position">
                             </div>
+                            <div>
+                                <label for="">
+                                    <input class="cd__reg_form_snils_input" type="text" name="snils" placeholder="СНИЛС">
+                                </label>
+                            </div>
                             <div class="form_extend">
                                 <div>
                                     <input class="user_password" placeholder="Пароль" required="" id="primary-pass-user" type="password" name="user_pass">

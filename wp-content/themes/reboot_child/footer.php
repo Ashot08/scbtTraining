@@ -149,17 +149,37 @@ if ( apply_filters( THEME_SLUG . '_slider_output', is_front_page() || is_home() 
         const user_company_name = jQuery('.user_company_name').val();
         const user_inn = jQuery('.user_inn').val();
         const user_position = jQuery('.user_position').val();
-
+        const user_snils = jQuery('[name="snils"]').val();
 
         if(userName && userEmail && userPassword){
-            regRequest (userName, userEmail, userPassword, userRole, accept, first_name, billing_phone, user_company_name, user_inn, user_position ).then(res => resultBlock.html(res));
+            regRequest (userName,
+                userEmail,
+                userPassword,
+                userRole,
+                accept,
+                first_name,
+                billing_phone,
+                user_company_name,
+                user_inn,
+                user_position,
+                user_snils).then(res => resultBlock.html(res));
         }else{
             resultBlock.html('<div class="scbt__notice_error">Заполните все обязательные поля</div>')
         }
 
     });
 
-    function regRequest (userName, userEmail, userPassword, userRole, accept, first_name, billing_phone, user_company_name, user_inn, user_position ) {
+    function regRequest (userName,
+                         userEmail,
+                         userPassword,
+                         userRole,
+                         accept,
+                         first_name,
+                         billing_phone,
+                         user_company_name,
+                         user_inn,
+                         user_position,
+                         user_snils) {
         return jQuery.ajax(
             {
                 method: 'Post',
@@ -175,7 +195,8 @@ if ( apply_filters( THEME_SLUG . '_slider_output', is_front_page() || is_home() 
                     billing_phone,
                     user_company_name,
                     user_inn,
-                    user_position
+                    user_position,
+                    user_snils
                 }
             },
         )

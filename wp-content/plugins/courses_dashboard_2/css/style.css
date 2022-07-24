@@ -301,7 +301,8 @@
 .cd__add_new_student_form{
     display: none;
 }
-.cd__send_program_details_document_result{
+.cd__send_program_details_document_result,
+.cd__update_profile_result{
     position: relative;
     margin: 20px 0;
 }
