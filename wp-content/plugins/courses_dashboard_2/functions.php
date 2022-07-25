@@ -191,10 +191,22 @@ function true_save_term_fields( $term_id ) {
 
 
 
-// Дополнительные поля профиля
+// Удаление строки из базы данных
+//--------------------------------------------------------------------
+//function deleteCourseFromDirectorsCourses(int $course_id){
+//    global $wpdb;
+//    $table = $wpdb->prefix . "c_dash__directors_courses";
+//    $data = $wpdb->get_results($wpdb->prepare(
+//        "
+//        DELETE
+//        FROM $table WHERE course_id = %d
+//        ", $course_id
+//    ));
+//    return $data;
+//}
+//deleteCourseFromDirectorsCourses(40);
 //--------------------------------------------------------------------
 
-//--------------------------------------------------------------------
 
 
 

@@ -404,6 +404,7 @@ function cd__send_program_details_document(){
             array(
                 'post_type' => 'wpm-page',
                 'numberposts' => 999,
+                'orderby' => 'menu_order',
                 'order'       => 'ASC',
                 'tax_query' => array(
                     array(

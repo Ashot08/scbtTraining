@@ -336,7 +336,7 @@ jQuery(document).ready(function(){
         //const course_id = jQuery(this).parent().find('input').val();
         const result_block = jQuery('.cd__steps_warnings');
 
-        const courses_array = [40, 84 ];
+        const courses_array = [84];
         for (const course of courses_array){
             cd__content_request (course, 'cd__add_course_to_director' ).then(res=>result_block.append(res));
         }

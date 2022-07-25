@@ -35,7 +35,7 @@ function program_details($data, $program_id, $program_info){
     <?php
     $args = [
         'taxonomy'      => [ 'wpm-category' ], // название таксономии с WP 4.5
-        'orderby'       => 'id',
+        'orderby'       => 'date',
         'order'         => 'ASC',
         'hide_empty'    => true,
         'object_ids'    => null,
