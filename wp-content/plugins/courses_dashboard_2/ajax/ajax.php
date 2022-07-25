@@ -321,12 +321,12 @@ function cd__send_program_details_document(){
     $properties->setKeywords('my, key, word');
 
 
-    $full_name =     !$_POST['full_name']     ?  '_______________' : $_POST['full_name'];
-    $short_name =    !$_POST['short_name']    ?  '_______________' : $_POST['short_name'];
-    $program_name =  !$_POST['program_name']  ?  '_______________' : $_POST['program_name'];
-    $hours =         !$_POST['hours']         ?  '_______________' : $_POST['hours'];
-    $director_post = !$_POST['director_post'] ?  '_______________' : $_POST['director_post'];
-    $director_name = !$_POST['director_name'] ?  '_______________' : $_POST['director_name'];
+    $full_name =     !$_POST['full_name']     ?  '_______________' : str_replace(array('\\'), '', $_POST['full_name']);
+    $short_name =    !$_POST['short_name']    ?  '_______________' : str_replace(array('\\'), '', $_POST['short_name']);
+    $program_name =  !$_POST['program_name']  ?  '_______________' : str_replace(array('\\'), '', $_POST['program_name']);
+    $hours =         !$_POST['hours']         ?  '_______________' : str_replace(array('\\'), '', $_POST['hours']);
+    $director_post = !$_POST['director_post'] ?  '_______________' : str_replace(array('\\'), '', $_POST['director_post']);
+    $director_name = !$_POST['director_name'] ?  '_______________' : str_replace(array('\\'), '', $_POST['director_name']);
     $courses =       !$_POST['courses'] ?  [] : $_POST['courses'];
 
 
@@ -475,9 +475,9 @@ function cd__send_student_control_details_document(){
     $spreadsheet = \PhpOffice\PhpSpreadsheet\IOFactory::load(__DIR__ . '/../views/students_control/template.xlsx');
     $worksheet = $spreadsheet->getActiveSheet();
 
-    $worksheet->getCell('C3')->setValue('Протокол от ' . date("d.m.Y"));
+    $worksheet->getCell('C3')->setValue('Протокол №' . $reg_number . ' от ' . date("d.m.Y"));
     $worksheet->getCell('C6')->setValue($full_name);
-    $worksheet->getCell('B8')->setValue("В соответствии с приказом руководителя организации от $date комиссия в составе:");
+    $worksheet->getCell('B8')->setValue("В соответствии с приказом руководителя организации от $date №$reg_number комиссия в составе:");
     $worksheet->getCell('D10')->setValue($comission_lead);
     $worksheet->getCell('D12')->setValue($comission_member_1);
     $worksheet->getCell('D14')->setValue($comission_member_2);
@@ -496,7 +496,7 @@ function cd__send_student_control_details_document(){
         $worksheet->getCell('D' . ($start_row + $users_counter))->setValue($user_position);
         $worksheet->getCell('E' . ($start_row + $users_counter))->setValue($full_name);
         $worksheet->getCell('F' . ($start_row + $users_counter))->setValue('');
-        $worksheet->getCell('G' . ($start_row + $users_counter))->setValue($reg_number);
+//        $worksheet->getCell('G' . ($start_row + $users_counter))->setValue($reg_number);
         $users_counter++;
     }
 

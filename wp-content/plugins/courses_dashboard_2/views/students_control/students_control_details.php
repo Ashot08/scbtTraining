@@ -5,6 +5,9 @@ function students_control_details($data, $program_id, $program_info){
     $users_array = [];
     $program_title = $program_info->title ?? '';
 
+    $courseModel = new \Models\Course();
+    $program_courses = $courseModel->getCoursesByProgramId($program_id);
+
     foreach ($data as $user){
         $users_array[] = $user->student_id;
     }
@@ -26,6 +29,8 @@ function students_control_details($data, $program_id, $program_info){
             <th>Email</th>
             <th>Пароль</th>
             <th>СНИЛС</th>
+            <th>Прогресс</th>
+
 <!--            <th>Прогресс</th>-->
             <th>
                 <label class="cd__table_select_all_label">
@@ -44,7 +49,15 @@ function students_control_details($data, $program_id, $program_info){
             $user_email = $user_info->data->user_email;
             $user_snils = get_user_meta( $user_id, 'user_snils', true );
             $user_pass = '123';
-            //$course_category = new MBLCategory(get_term($program_id), true, true);
+
+            $total_progress = 0;
+
+            foreach ($program_courses as $course){
+                $term = get_term($course->course_id);
+                $course_category = new MBLCategory($term);
+                $total_progress += $course_category->getProgress($user_id) ?? '0';
+            }
+
             ?>
 
             <tr>
@@ -54,8 +67,9 @@ function students_control_details($data, $program_id, $program_info){
                 <td><?php echo $user_email; ?></td>
                 <td><?php echo $user_pass; ?></td>
                 <td><?php echo $user_snils; ?></td>
-<!--                <td>--><?php //echo $course_category->getProgress($user_id); ?><!--%</td>-->
-<!--                <td>0%</td>-->
+                <td>
+                    <?php echo number_format($total_progress/count($program_courses), 1, '.', ''); ?>%
+                </td>
                 <td>
                     <label>
                         <input class="cd__table_select_user_checkbox" data-action="cd__select_item" data-student_id="<?= $user_id; ?>" type="checkbox">
@@ -117,6 +131,9 @@ function students_control_details($data, $program_id, $program_info){
                 <input type="date" name="date" placeholder="Дата создания приказа руководителя">
             </label>
             <label for="">
+                <input type="text" name="reg_number" placeholder="Номер приказа">
+            </label>
+            <label for="">
                 <input type="text" name="comission_lead" placeholder="Председатель">
             </label>
             <label for="">
@@ -127,9 +144,6 @@ function students_control_details($data, $program_id, $program_info){
             </label>
             <label for="">
                 <input type="text" name="hours" placeholder="Объем программы в часах">
-            </label>
-            <label for="">
-                <input type="text" name="reg_number" placeholder="Регистрационный номер записи">
             </label>
 
             <button data-action="cd__send_student_control_details_document">
