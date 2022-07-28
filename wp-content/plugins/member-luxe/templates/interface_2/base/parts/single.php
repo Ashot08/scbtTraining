@@ -84,6 +84,7 @@ $term = get_term($category->getTermId());
             </div>
         </div>
 
+
         <div class="row">
             <div class="col-xs-12">
                 <div class="lesson-tabs bordered-tabs white-tabs tabs-count-<?php echo $mblPage->getTabsCount(); ?>">
@@ -139,9 +140,78 @@ $term = get_term($category->getTermId());
                                 </div>
                             <?php endif; ?>
                         <?php endif; ?>
+
+
+                        <?php if(is_single(2910)): ?>
+
+                                <div class="cd__videos">
+                                    <?php
+                                    // print_r(get_ancestors( $category->getTermId(), 'wpm-category', 'taxonomy' ));
+                                    $my_posts = get_posts( array(
+                                        'numberposts' => 30,
+                                        'category'    => 0,
+                                        'tax_query'=> array(
+                                            'relation' => 'OR',
+                                            array(
+                                                'taxonomy'=> 'wpm-category',
+                                                //'field'=> 'id',
+                                                'terms'=>$category->getTermId(),
+                                                'include_children' => false
+                                            ),
+                                            array(
+                                                'taxonomy'=> 'wpm-category',
+                                                'terms'            => get_ancestors( $category->getTermId(), 'wpm-category', 'taxonomy' ),
+                                                'include_children' => false
+                                            )
+                                        ),
+                                        'orderby'     => 'menu_order',
+                                        'order'       => 'ASC',
+                                        'include'     => array(),
+                                        'exclude'     => array(),
+                                        'meta_key'    => '',
+                                        'meta_value'  =>'',
+                                        'post_type'   => 'cd__video',
+                                        'suppress_filters' => true, // подавление работы фильтров изменения SQL запроса
+                                    ) );
+                                    $current_id = get_queried_object()->ID;
+
+                                    foreach( $my_posts as $post ){
+                                        setup_postdata( $post );
+                                        ?>
+                                        <?php
+                                        $post_id = $post->ID;
+                                        $post_title = $post->post_title;
+
+                                        ?>
+                                        <div class="cd__video">
+                                            <div class="cd__video_title">
+                                                <?= $post_title;?>
+                                            </div>
+                                            <video controls="controls" loop="loop" muted="muted" preload="metadata" data-role="tag" poster="<?php echo get_the_post_thumbnail_url($post_id); ?>">
+                                                <source src="<?php echo get_field('cd_videofajl', $post_id); ?>" type="video/mp4">
+                                            </video>
+                                            <div class="cd__video_desctiption">
+                                                <?php the_content();?>
+                                            </div>
+                                        </div>
+
+                                        <?php
+                                    }
+
+                                    wp_reset_postdata();?>
+
+                                </div>
+                                <?php
+
+                            ?>
+                        <?php endif; ?>
+
+
                     </div>
                 </div>
             </div>
+
+
             <div>
                 <?php if ($mblPage->getId() != wpm_get_option('schedule_id') && $mblPage->hasAccess()) : ?>
                     <?php wpm_render_partial('material-status-row', 'base', compact('category', 'mblPage')) ?>
@@ -207,6 +277,9 @@ $term = get_term($category->getTermId());
         <?php endif; ?>
     </section>
 <?php endif; ?>
+
+
+
 <script>
 
     /* Отметить курс пройденным или нет

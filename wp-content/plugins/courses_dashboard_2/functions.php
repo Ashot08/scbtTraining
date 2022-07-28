@@ -45,7 +45,7 @@ add_action( 'init', 'register_post_types' );
 
 function register_post_types(){
 
-    register_post_type( 'post_type_name', [
+    register_post_type( 'cd__video', [
         'label'  => 'cd__video',
         'labels' => [
             'name'               => 'Видео', // основное название для типа записи
@@ -264,5 +264,8 @@ function true_save_term_fields( $term_id ) {
 
 
 
+// Шорткод блока видео для cd__video post type
+//--------------------------------------------------------------------
 
+//--------------------------------------------------------------------
 

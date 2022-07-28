@@ -351,8 +351,30 @@
 .scbt__account_form.active{
     display: block;
 }
+.cd__videos{
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+}
+.cd__videos video {
+    width: 100%;
+}
+.cd__video_title{
+    margin: 10px 0;
+    font-size: 18px;
+    font-weight: 700;
+    text-align: center;
+}
+.cd__video_description{
+    margin: 10px 0;
+}
 
-
+@media (max-width: 768px) {
+    .cd__videos{
+        grid-template-columns: 1fr;
+    }
+}
 
 
 /*.cd__chapters_list_level_1, .cd__chapters_list_level_1 ul, .cd__chapters_list_level_1 li {*/
