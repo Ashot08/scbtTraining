@@ -7,13 +7,14 @@ use Controllers\ProfileController;
 use PhpOffice\PhpWord\Element\Table;
 
 function cd__register_new_user($userdata, $error_text, $success_text){
+    
     $email = $userdata['user_email'];
     $is_valid_email = filter_var($email, FILTER_VALIDATE_EMAIL) && preg_match('/@.+\./', $email);
     $message = '';
     if($is_valid_email){
         $user_id = wp_insert_user( $userdata );
-        if( ! is_wp_error( $user_id ) ){
 
+        if( ! is_wp_error( $user_id ) ){
             update_user_meta($user_id, 'user_snils', $userdata['user_snils']);
             update_user_meta($user_id, 'user_position', $userdata['user_position']);
 
@@ -287,11 +288,11 @@ function cd__add_students_mass() {
         $userdata = [];
         $row_number = $i + 1;
         $userdata = [
-            'user_login' => $worksheet->getCell("A$row_number"),
-            'first_name' => $worksheet->getCell("B$row_number"),
-            'user_snils' => $worksheet->getCell("C$row_number"),
-            'user_email' => $worksheet->getCell("D$row_number"),
-            'user_position' => $worksheet->getCell("E$row_number"),
+            'user_login' => $worksheet->getCell("A$row_number")->getValue(),
+            'first_name' => $worksheet->getCell("B$row_number")->getValue(),
+            'user_snils' => $worksheet->getCell("C$row_number")->getValue(),
+            'user_email' => $worksheet->getCell("D$row_number")->getValue(),
+            'user_position' => $worksheet->getCell("E$row_number")->getValue(),
             'user_pass' => '123',
             'role' => 'customer',
             'program_id' => $_POST['program_id']

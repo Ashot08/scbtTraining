@@ -378,6 +378,11 @@
     margin-bottom: 10px;
 }
 .cd__students_mass_template_link{
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+}
+.cd__students_mass_adding_button_wrp{
     margin: 10px 0;
 }
 @media (max-width: 768px) {
