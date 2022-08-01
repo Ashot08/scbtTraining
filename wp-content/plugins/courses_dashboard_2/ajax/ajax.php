@@ -6,6 +6,37 @@ use Controllers\KeyController;
 use Controllers\ProfileController;
 use PhpOffice\PhpWord\Element\Table;
 
+function cd__register_new_user($userdata, $error_text, $success_text){
+    $email = $userdata['user_email'];
+    $is_valid_email = filter_var($email, FILTER_VALIDATE_EMAIL) && preg_match('/@.+\./', $email);
+    $message = '';
+    if($is_valid_email){
+        $user_id = wp_insert_user( $userdata );
+        if( ! is_wp_error( $user_id ) ){
+
+            update_user_meta($user_id, 'user_snils', $userdata['user_snils']);
+            update_user_meta($user_id, 'user_position', $userdata['user_position']);
+
+            $creds = array();
+            $creds['user_login'] = $userdata['user_login'];
+            $creds['user_password'] = '123';
+            $creds['remember'] = true;
+
+            $studentController = new StudentController();
+            $studentController->actionOnlyConnectStudentWithProgram($user_id, $userdata['program_id']);
+
+            $message = '<div class="scbt__notice_success">' . $success_text . 'Студент успешно создан. </div>';
+        }
+        else {
+            $message = '<div class="scbt__notice_error">' . $error_text . ' ' . $user_id->get_error_message() . '</div>';
+        }
+    }else{
+        $message = '<div class="scbt__notice_error">' . $error_text . ' Поле E-mail заполнено некорректно.</div>';
+    }
+    return $message;
+}
+
+
 
 add_action('wp_ajax_cd__get_director_programs_list', 'cd__get_director_programs_list');
 add_action('wp_ajax_nopriv_cd__get_director_programs_list', 'cd__get_director_programs_list');
@@ -70,7 +101,6 @@ function cd__create_and_attach_key(){
     $controller->actionCreateAndAttachKey($director_id, $program_id);
     wp_die();
 }
-
 
 
 
@@ -235,6 +265,45 @@ function cd__add_new_student(){
 
 //--------------------------------------------------------------------
 
+
+
+
+add_action('wp_ajax_cd__add_students_mass', 'cd__add_students_mass');
+add_action('wp_ajax_nopriv_cd__add_students_mass', 'cd__add_students_mass');
+function cd__add_students_mass() {
+
+    $reader = new \PhpOffice\PhpSpreadsheet\Reader\Xlsx();
+    $spreadsheet = $reader->load($_FILES['file']['tmp_name']);
+    $worksheet = $spreadsheet->getActiveSheet();
+    $writer = \PhpOffice\PhpSpreadsheet\IOFactory::createWriter($spreadsheet, 'Html');
+    $rows_count = count( $worksheet->toArray() );
+    //$cell = $worksheet->getCell('A2');
+    //$message = $writer->save('php://output');
+    if($rows_count < 2){
+        echo '<div class="scbt__notice_error">Ваш excel документ не содержит пользователей</div>';
+        wp_die();
+    }
+    for ($i = 1; $i < $rows_count; $i++) {
+        $userdata = [];
+        $row_number = $i + 1;
+        $userdata = [
+            'user_login' => $worksheet->getCell("A$row_number"),
+            'first_name' => $worksheet->getCell("B$row_number"),
+            'user_snils' => $worksheet->getCell("C$row_number"),
+            'user_email' => $worksheet->getCell("D$row_number"),
+            'user_position' => $worksheet->getCell("E$row_number"),
+            'user_pass' => '123',
+            'role' => 'customer',
+            'program_id' => $_POST['program_id']
+        ];
+
+
+        $result = cd__register_new_user($userdata, "Для пользователя из строки №$row_number ", "Из строки №$row_number " );
+        echo $result;
+    }
+
+    wp_die();
+}
 
 
 //Обновление полей профиля

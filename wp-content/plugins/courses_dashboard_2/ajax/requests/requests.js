@@ -68,6 +68,26 @@ function cd__add_new_student_form_request ( user_login, first_name, user_email, 
     )
 }
 
+function cd__add_students_mass_request ( file, program_id ) {
+    let fd = new FormData();
+    fd.append("file", file[0].files[0]);
+    fd.append("caption", 'cd__add_students_mass_request');
+    fd.append('action', 'cd__add_students_mass');
+    fd.append('program_id', program_id);
+    return jQuery.ajax(
+        {
+            method: 'Post',
+            url: ajaxUrl.url,
+            contentType: false,
+            processData: false,
+            data: fd,
+            // data: {
+            //     action: 'cd__add_students_mass',
+            //     file,
+            // }
+        },
+    )
+}
 
 function cd__update_profile ( first_name, user_email, user_position, user_snils, user_inn, user_company_name, billing_phone ) {
     return jQuery.ajax(

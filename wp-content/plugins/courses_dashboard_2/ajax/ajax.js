@@ -420,6 +420,25 @@ jQuery(document).on('click', '[data-action="cd__send_add_new_student_form"]' , f
 /*----------------------------------*/
 
 
+/*-------Add students mass form-------*/
+
+jQuery(document).on('click', '[data-action="cd__add_students_mass"]' , function (e) {
+    e.preventDefault();
+    const resultBlock = jQuery('.cd__add_students_mass_result');
+    const file = jQuery('[name="cd__students_mass_file"]');
+    const program_id = jQuery(this).data('program_id');
+
+
+    if(file){
+        cd__add_students_mass_request(file, program_id).then(res => resultBlock.html(res));
+    }else{
+        resultBlock.html('<div class="scbt__notice_error">Загрузите файл с компьютера</div>')
+    }
+
+});
+/*----------------------------------*/
+
+
 
 /*-------Создание и скачивание docx файла Учебной программы-------*/
 
