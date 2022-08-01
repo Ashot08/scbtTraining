@@ -142,7 +142,7 @@ $term = get_term($category->getTermId());
                         <?php endif; ?>
 
 
-                        <?php if(is_single(2910)): ?>
+                        <?php if( is_single(2910) ): ?>
 
                                 <div class="cd__videos">
                                     <?php
