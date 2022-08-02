@@ -385,6 +385,56 @@
 .cd__students_mass_adding_button_wrp{
     margin: 10px 0;
 }
+.cd__checkbox_status_4_li input{
+    display: none;
+}
+.cd__checkbox_status_4_li input:checked{
+    display: inline-block;
+}
+.cd__chapters_list_item_label{
+    cursor: pointer;
+    transition: 0.5s;
+}
+.cd__chapters_list_item:hover .cd__chapters_list_item_label{
+    background-color: rgba(0,0,0,0.02);
+}
+
+.cd__chapters .cd__chapters_list_item{
+    position: relative;
+}
+.cd__chapters .cd__chapters_list_level_1 .cd__chapters_list_item label{
+    padding-right: 40px;
+}
+.cd__chapters_list_item_description{
+    position: absolute;
+    right: 0;
+    top:0;
+    color: #c50000;
+    cursor: pointer;
+    z-index: 1;
+    text-align: right;
+}
+.cd__chapters_list_item_description_content{
+    display: none;
+    background-color: #fff;
+    padding: 10px;
+    border: 1px solid rgba(0,0,0,0.1);
+    position: absolute;
+    right: 30px;
+    top: -10px;
+    min-width: 400px;
+    text-align: left;
+    color: #333;
+    box-shadow: rgb(100 100 111 / 20%) 0px 7px 29px 0px;
+}
+.cd__chapters_list_item_description svg{
+    opacity: 0.1;
+    transition: 0.5s;
+}
+.cd__chapters_list_item:hover > .cd__chapters_list_item_description svg{
+    opacity: 1;
+}
+
 @media (max-width: 768px) {
     .cd__videos{
         grid-template-columns: 1fr;

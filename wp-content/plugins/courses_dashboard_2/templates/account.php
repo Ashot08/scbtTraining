@@ -68,7 +68,7 @@ get_header();
                 </div>
                 <div class="scbt__account_forms_content">
                     <div class="scbt__account_form active">
-                        <?php wp_login_form(); ?>
+                        <?php wp_login_form(array('label_username' => 'Логин или Email')); ?>
                     </div>
                     <div class="scbt__account_form">
                         <form class="scbt__register_form" action="" method="post" enctype="multipart/form-data">
@@ -129,7 +129,7 @@ get_header();
                                     <div class="scbt__checkbox_square" >
                                         <span>✓</span>
                                     </div>
-                                    Нажимая кнопку "Зарегистрироваться" я даю свое согласие на обработку песональной информации в соответствии с Политикой конфиденциальности
+                                    Нажимая кнопку "Зарегистрироваться" я даю свое согласие на обработку персональной информации в соответствии с <a href="/wp-content/uploads/2022/08/polozhenie-o-personalnyh-dannyh-2022_p.pdf">Политикой конфиденциальности</a>
                                 </label>
                                 <input id="scbt__checkbox_accept" type="checkbox" name="accept" checked>
                             </div>
