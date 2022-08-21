@@ -2,13 +2,14 @@
 namespace Models;
 class Student {
 
-    public function getStudentsByProgramId(int $program_id){
+    public function getStudentsByProgramId(int $program_id, int $from = 0, int $to = 1000 ){
         global $wpdb;
         $table = $wpdb->prefix . "c_dash__students_programs";
         $data = $wpdb->get_results($wpdb->prepare(
             "
         SELECT student_id 
         FROM $table WHERE program_id = %d
+        LIMIT $from, $to
         ", $program_id
         ));
         return $data;
